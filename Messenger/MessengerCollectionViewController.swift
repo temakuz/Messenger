@@ -8,19 +8,22 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "CellMessage"
 
 class MessengerCollectionViewController: UICollectionViewController {
     
+    private var messages = ["Lorem ipsum dolor sit amet.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa leo, mollis id tortor at posuere.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper vitae mi vel hendrerit. Suspendisse et feugiat mi. Donec quis sollicitudin quam, non porttitor nulla. Phasellus in luctus lorem, sed auctor enim. Suspendisse potenti. Ut maximus pharetra diam, ac laoreet est dignissim eu nullam."
+    ]
+    
+    @IBOutlet weak var constraintMessageWidth: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
 
-        
         // Do any additional setup after loading the view.
     }
 
@@ -28,16 +31,6 @@ class MessengerCollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -49,57 +42,30 @@ class MessengerCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return messages.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        
+
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MessageCollectionViewCell
+        cell.messageView.inputMessage = false
+        cell.messageLable?.text = messages[indexPath.row]
+
         
         // Configure the cell
-    
         return cell
     }
     
-        // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Now that the collection view has appeared, then all the cells have been initialized
+        // with their appropiate content. The view should then be reloaded with the newly
+        // calculated sizes as well.
+        collectionView?.reloadData()
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
-    }
-    */
-    
-    func drawRect(rect: CGRect) {
-        let ctx: CGContextRef = UIGraphicsGetCurrentContext()!
-        CGContextSetRGBFillColor(ctx, 0.0, 0.0, 1.0, 1.0)
-        CGContextFillEllipseInRect(ctx, CGRectMake(0.0, 0.0, 70.0, 50.0))
-        CGContextBeginPath(ctx)
-        CGContextMoveToPoint(ctx, 8.0, 40.0)
-        CGContextAddLineToPoint(ctx, 6.0, 50.0)
-        CGContextAddLineToPoint(ctx, 18.0, 45.0)
-        CGContextClosePath(ctx)
-        CGContextFillPath(ctx)
-    }
 }
+

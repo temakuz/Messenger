@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */; };
-		AC91A5B41BC2D91C00ED293F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91A5B31BC2D91C00ED293F /* ViewController.swift */; };
 		AC91A5B71BC2D91C00ED293F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B51BC2D91C00ED293F /* Main.storyboard */; };
 		AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B81BC2D91C00ED293F /* Assets.xcassets */; };
 		AC91A5BC1BC2D91C00ED293F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */; };
+		AC9745321BC3F46E00B37456 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		AC9D05E11BC2F86B0051FABC /* MessengerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D05E01BC2F86B0051FABC /* MessengerCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		ACA80D001BC309B000441D6E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80CFF1BC309B000441D6E /* MessageView.swift */; settings = {ASSET_TAGS = (); }; };
 		ACA80D021BC39EB600441D6E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80D011BC39EB600441D6E /* Message.swift */; settings = {ASSET_TAGS = (); }; };
@@ -21,11 +21,11 @@
 /* Begin PBXFileReference section */
 		AC91A5AE1BC2D91C00ED293F /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC91A5B31BC2D91C00ED293F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC91A5B61BC2D91C00ED293F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC91A5B81BC2D91C00ED293F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC91A5BB1BC2D91C00ED293F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91A5BD1BC2D91C00ED293F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC9D05E01BC2F86B0051FABC /* MessengerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerCollectionViewController.swift; sourceTree = "<group>"; };
 		ACA80CFF1BC309B000441D6E /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		ACA80D011BC39EB600441D6E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -63,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */,
-				AC91A5B31BC2D91C00ED293F /* ViewController.swift */,
 				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
 				AC91A5B81BC2D91C00ED293F /* Assets.xcassets */,
 				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
@@ -72,6 +71,7 @@
 				ACA80CFF1BC309B000441D6E /* MessageView.swift */,
 				ACA80D011BC39EB600441D6E /* Message.swift */,
 				ACA80D031BC39EC000441D6E /* User.swift */,
+				AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */,
 			);
 			path = Messenger;
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9745321BC3F46E00B37456 /* MessageCollectionViewCell.swift in Sources */,
 				ACA80D001BC309B000441D6E /* MessageView.swift in Sources */,
-				AC91A5B41BC2D91C00ED293F /* ViewController.swift in Sources */,
 				ACA80D041BC39EC000441D6E /* User.swift in Sources */,
 				ACA80D021BC39EB600441D6E /* Message.swift in Sources */,
 				AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */,
