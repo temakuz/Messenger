@@ -11,22 +11,22 @@ import UIKit
 class CastomStyleCell: UICollectionViewLayout {
 
 
-    enum PositionCell: Int {
+    private enum PositionCell: Int {
         case Left
         case Right
     }
     
-    var positionCell = PositionCell.Right
+    private var positionCell = PositionCell.Right
     // 1
     var delegate: MessageLayoutDelegate!
     
     // 2
-    var numberOfColumns = 1
-    var cellPadding: CGFloat = 6.0
-    
+    private var numberOfColumns = 1
+    private var cellPadding: CGFloat = 6.0
     // 3
     private var cache = [UICollectionViewLayoutAttributes]()
     
+    private var cellHeight: CGFloat = 0
     // 4
     private var contentHeight: CGFloat  = 0.0
     private var contentWidth: CGFloat {
@@ -35,45 +35,34 @@ class CastomStyleCell: UICollectionViewLayout {
     }
     
     override func prepareLayout() {
-        // 1
+        
+        guard let collectionView = collectionView else {
+            return
+        }
+        
+        let contentWidthCell = contentWidth * 0.7
+        
         if cache.isEmpty {
-            // 2
-            let columnWidth = contentWidth * 0.7
-            var xOffset = [CGFloat]()
-            for column in 0 ..< numberOfColumns {
-                xOffset.append(CGFloat(column) * columnWidth )
-            }
-            var column = 0
-            var yOffset = [CGFloat](count: numberOfColumns, repeatedValue: 0)
-            
-            // 3
-            
-            for item in 0 ..< collectionView!.numberOfItemsInSection(0) {
-                
-                let indexPath = NSIndexPath(forItem: item, inSection: 0)
-                
-                let messageHeight = delegate.collectionView(collectionView!, heightForMessageViewAtIndexPath: indexPath,
-                    withWidth: columnWidth)
-                var minHeight = messageHeight > 85 ? messageHeight : 85
-                let height = cellPadding + minHeight + cellPadding + 70
-                let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
-
-                let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                
-                let position = delegate.collectioView(collectionView!, positionCellViewAtIndexPath: indexPath)
-                
-                contentHeight = max(contentHeight, CGRectGetMaxY(frame))
-                
-                if position == 0 {
-                    attributes.frame = CGRectMake(contentWidth - columnWidth , yOffset[column], columnWidth, height)
-                    positionCell = .Right
-                } else {
-                    attributes.frame = CGRectMake(cellPadding, yOffset[column], columnWidth, height)
-                    positionCell = .Left
+            for section in 0..<collectionView.numberOfSections() {
+                for item in 0..<collectionView.numberOfItemsInSection(section) {
+                    let indexPath = NSIndexPath(forItem: item, inSection: section)
+                    let messageHeight = delegate.collectionView(collectionView, heightForMessageViewAtIndexPath: indexPath, withWidth: contentWidthCell)
+                    var positionCell = delegate.collectioView(collectionView, positionCellViewAtIndexPath: indexPath)
+                    let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                    
+                    contentHeight += messageHeight
+                    let frame: CGRect
+                    if positionCell == 0 {
+                        //frame = CGRectMake(0 , 0, 300, contentHeight)
+                        frame = CGRectMake(contentWidth - contentWidthCell , cellHeight, contentWidthCell, messageHeight + 100)
+                    } else {
+                        frame = CGRectMake(cellPadding, cellHeight, contentWidthCell, messageHeight + 100)
+                    }
+                    cellHeight += CGRectGetHeight(frame)
+                    
+                    attributes.frame = frame
+                    cache.append(attributes)
                 }
-                cache.append(attributes)
-
-                yOffset[column] += height
             }
         }
     }
@@ -81,7 +70,7 @@ class CastomStyleCell: UICollectionViewLayout {
     
     
     override func collectionViewContentSize() -> CGSize {
-        return CGSize(width: contentWidth, height: contentHeight)
+        return CGSize(width: contentWidth, height: cellHeight)
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

@@ -25,20 +25,22 @@ class MessageView: UIView {
         
         let pointerHeight: CGFloat = 15.0
         let pointerWidth: CGFloat = 15.0
-        let borderRadius: CGFloat = 10.0
+        let borderRadius: CGFloat = 8.0
         let strokeWidth: CGFloat = 1.5
-        let borderColor: CGColorRef = UIColor.greenColor().CGColor
+        let borderColor: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor
         let backgroundColor: CGColorRef = UIColor.whiteColor().CGColor
-        
+        let backgroundColorCurrentCell: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
+
         CGContextSetLineJoin(context, .Round);
         CGContextSetLineWidth(context, strokeWidth);
         CGContextSetStrokeColorWithColor(context, borderColor);
-        CGContextSetFillColorWithColor(context, backgroundColor);
         
-        // Draw and fill the bubble left
-        CGContextBeginPath(context);
         
         if positionView == .Left {
+        
+            CGContextSetFillColorWithColor(context, backgroundColor);
+            CGContextBeginPath(context);
+
             // Move to the bottom left point
             CGContextMoveToPoint(context, borderRadius + strokeWidth, rect.size.height - borderRadius - strokeWidth);
             
@@ -49,28 +51,28 @@ class MessageView: UIView {
             
             CGContextAddArcToPoint(context, borderRadius + strokeWidth, strokeWidth, rect.size.width - strokeWidth, strokeWidth, borderRadius - strokeWidth)
             CGContextAddArcToPoint(context, rect.size.width - strokeWidth, strokeWidth, rect.size.width - strokeWidth, rect.size.height - strokeWidth, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, rect.size.width - strokeWidth - 0.5, rect.size.height - strokeWidth, rect.size.width / 2.0 + pointerWidth / 2.0 - strokeWidth, rect.size.height - strokeWidth - 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, borderRadius + strokeWidth, rect.size.height - strokeWidth, strokeWidth + borderRadius, strokeWidth, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, rect.size.width - strokeWidth, rect.size.height - strokeWidth, rect.size.width / 2.0 + pointerWidth / 2.0 - strokeWidth, rect.size.height - strokeWidth, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, borderRadius + strokeWidth, rect.size.height - strokeWidth, borderRadius + strokeWidth, strokeWidth, borderRadius - strokeWidth)
         } else {
-            // Draw and fill the bubble right
+            CGContextSetFillColorWithColor(context, backgroundColorCurrentCell);
             CGContextBeginPath(context);
-            
+
             // Move to the right bottom point
-            CGContextMoveToPoint(context, rect.size.width - borderRadius - strokeWidth - 0.5, rect.size.height - borderRadius - strokeWidth - 0.5);
+            CGContextMoveToPoint(context, rect.size.width - borderRadius - strokeWidth, rect.size.height - borderRadius - strokeWidth);
             
             // Add the triangle lines starting from the bottom right point
-            CGContextAddLineToPoint(context, rect.size.width - borderRadius - strokeWidth - 0.5, rect.size.height / 2 + strokeWidth + pointerHeight / 2 - 0.5)
-            CGContextAddLineToPoint(context, rect.size.width - strokeWidth - 0.5, rect.size.height / 2 + strokeWidth)
-            CGContextAddLineToPoint(context, rect.size.width - borderRadius - strokeWidth - 0.5, rect.size.height / 2 + strokeWidth - pointerHeight / 2 + 0.5)
+            CGContextAddLineToPoint(context, rect.size.width - borderRadius - strokeWidth, rect.size.height / 2 + strokeWidth + pointerHeight / 2)
+            CGContextAddLineToPoint(context, rect.size.width - strokeWidth, rect.size.height / 2 + strokeWidth)
+            CGContextAddLineToPoint(context, rect.size.width - borderRadius - strokeWidth, rect.size.height / 2 + strokeWidth - pointerHeight / 2)
             
-            CGContextAddArcToPoint(context, rect.size.width - borderRadius - strokeWidth - 0.5, strokeWidth + 0.5, rect.size.width - strokeWidth - borderRadius - pointerHeight - 0.5, strokeWidth + 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, strokeWidth + 0.5, strokeWidth - 0.5, strokeWidth + 0.5, strokeWidth + borderRadius + 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, strokeWidth + 0.5, rect.size.height - strokeWidth - 0.5, rect.size.width / 2.0 + pointerWidth / 2.0 - strokeWidth + 0.5, rect.size.height - strokeWidth - 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, rect.size.width - borderRadius - strokeWidth - 0.5, rect.size.height - strokeWidth - 0.5, rect.size.width - pointerWidth - strokeWidth + 0.5, strokeWidth + 0.5, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, rect.size.width - borderRadius - strokeWidth, strokeWidth, rect.size.width - strokeWidth - borderRadius - pointerHeight, strokeWidth, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, strokeWidth, strokeWidth, strokeWidth, strokeWidth + borderRadius, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, strokeWidth, rect.size.height - strokeWidth, rect.size.width / 2.0 + pointerWidth / 2.0 - strokeWidth, rect.size.height - strokeWidth, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, rect.size.width - borderRadius - strokeWidth, rect.size.height - strokeWidth, rect.size.width - borderRadius - strokeWidth, strokeWidth, borderRadius - strokeWidth)
         }
         
         CGContextClosePath(context)
-        CGContextDrawPath(context, .Stroke)
+        CGContextDrawPath(context, .FillStroke)
     }
     
 }
