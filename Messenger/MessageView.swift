@@ -29,7 +29,7 @@ class MessageView: UIView {
         let strokeWidth: CGFloat = 1.5
         let borderColor: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor
         let backgroundColor: CGColorRef = UIColor.whiteColor().CGColor
-        let backgroundColorCurrentCell: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.2).CGColor
+        let backgroundColorCurrentCell: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
 
         CGContextSetLineJoin(context, .Round);
         CGContextSetLineWidth(context, strokeWidth);

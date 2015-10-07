@@ -50,15 +50,15 @@ class CastomStyleCell: UICollectionViewLayout {
                     var positionCell = delegate.collectioView(collectionView, positionCellViewAtIndexPath: indexPath)
                     let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                     
-                    contentHeight += messageHeight
+                    cellHeight += messageHeight
                     let frame: CGRect
                     if positionCell == 0 {
                         //frame = CGRectMake(0 , 0, 300, contentHeight)
-                        frame = CGRectMake(contentWidth - contentWidthCell , cellHeight, contentWidthCell, messageHeight + 100)
+                        frame = CGRectMake(contentWidth - contentWidthCell , contentHeight, contentWidthCell, messageHeight + 100)
                     } else {
-                        frame = CGRectMake(cellPadding, cellHeight, contentWidthCell, messageHeight + 100)
+                        frame = CGRectMake(cellPadding, contentHeight, contentWidthCell, messageHeight + 100)
                     }
-                    cellHeight += CGRectGetHeight(frame)
+                    contentHeight += CGRectGetHeight(frame)
                     
                     attributes.frame = frame
                     cache.append(attributes)
@@ -70,7 +70,7 @@ class CastomStyleCell: UICollectionViewLayout {
     
     
     override func collectionViewContentSize() -> CGSize {
-        return CGSize(width: contentWidth, height: cellHeight)
+        return CGSize(width: contentWidth, height: contentHeight)
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
