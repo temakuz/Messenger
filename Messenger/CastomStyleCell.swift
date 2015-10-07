@@ -55,7 +55,7 @@ class CastomStyleCell: UICollectionViewLayout {
                 let messageHeight = delegate.collectionView(collectionView!, heightForMessageViewAtIndexPath: indexPath,
                     withWidth: columnWidth)
                 var minHeight = messageHeight > 85 ? messageHeight : 85
-                let height = cellPadding + minHeight + cellPadding + 55
+                let height = cellPadding + minHeight + cellPadding + 70
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
 
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)

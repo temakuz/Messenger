@@ -40,17 +40,17 @@ class MessageView: UIView {
         
         if positionView == .Left {
             // Move to the bottom left point
-            CGContextMoveToPoint(context, borderRadius + strokeWidth + 0.5, rect.size.height - borderRadius - strokeWidth - 0.5);
+            CGContextMoveToPoint(context, borderRadius + strokeWidth, rect.size.height - borderRadius - strokeWidth);
             
             // Add the triangle lines starting from the bottom left point
-            CGContextAddLineToPoint(context, borderRadius + strokeWidth + 0.5, rect.size.height / 2 + strokeWidth + pointerHeight / 2 - 0.5)
-            CGContextAddLineToPoint(context, strokeWidth + 0.5, rect.size.height / 2 + strokeWidth)
-            CGContextAddLineToPoint(context, borderRadius + strokeWidth + 0.5, rect.size.height / 2 + strokeWidth - pointerHeight / 2 + 0.5)
+            CGContextAddLineToPoint(context, borderRadius + strokeWidth, rect.size.height / 2 + strokeWidth + pointerHeight / 2)
+            CGContextAddLineToPoint(context, strokeWidth, rect.size.height / 2 + strokeWidth)
+            CGContextAddLineToPoint(context, borderRadius + strokeWidth, rect.size.height / 2 + strokeWidth - pointerHeight / 2)
             
-            CGContextAddArcToPoint(context, borderRadius + strokeWidth + 0.5, strokeWidth + 0.5, rect.size.width - strokeWidth - 0.5, strokeWidth + 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, rect.size.width - strokeWidth - 0.5, strokeWidth + 0.5, rect.size.width - strokeWidth - 0.5, rect.size.height - strokeWidth - 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, rect.size.width - strokeWidth - 0.5, rect.size.height - strokeWidth - 0.5, rect.size.width / 2.0 + pointerWidth / 2.0 - strokeWidth + 0.5, rect.size.height - strokeWidth - 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, borderRadius + strokeWidth + 0.5, rect.size.height - strokeWidth - 0.5, strokeWidth + 0.5 + borderRadius, strokeWidth + 0.5, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, borderRadius + strokeWidth, strokeWidth, rect.size.width - strokeWidth, strokeWidth, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, rect.size.width - strokeWidth, strokeWidth, rect.size.width - strokeWidth, rect.size.height - strokeWidth, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, rect.size.width - strokeWidth - 0.5, rect.size.height - strokeWidth, rect.size.width / 2.0 + pointerWidth / 2.0 - strokeWidth, rect.size.height - strokeWidth - 0.5, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, borderRadius + strokeWidth, rect.size.height - strokeWidth, strokeWidth + borderRadius, strokeWidth, borderRadius - strokeWidth)
         } else {
             // Draw and fill the bubble right
             CGContextBeginPath(context);
