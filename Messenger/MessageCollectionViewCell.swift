@@ -14,4 +14,5 @@ class MessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLable: UILabel!
     @IBOutlet weak var imageUser: UIImageView!
     @IBOutlet weak var messageView: MessageView!
+
 }

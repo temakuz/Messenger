@@ -14,7 +14,11 @@ import CoreGraphics
 
 class MessageView: UIView {
 
-    var inputMessage = true
+    enum PositionView: Int {
+        case Left
+        case Right
+    }
+    var positionView = PositionView!()
     
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
@@ -34,7 +38,7 @@ class MessageView: UIView {
         // Draw and fill the bubble left
         CGContextBeginPath(context);
         
-        if inputMessage {
+        if positionView == .Left {
             // Move to the bottom left point
             CGContextMoveToPoint(context, borderRadius + strokeWidth + 0.5, rect.size.height - borderRadius - strokeWidth - 0.5);
             
@@ -46,7 +50,7 @@ class MessageView: UIView {
             CGContextAddArcToPoint(context, borderRadius + strokeWidth + 0.5, strokeWidth + 0.5, rect.size.width - strokeWidth - 0.5, strokeWidth + 0.5, borderRadius - strokeWidth)
             CGContextAddArcToPoint(context, rect.size.width - strokeWidth - 0.5, strokeWidth + 0.5, rect.size.width - strokeWidth - 0.5, rect.size.height - strokeWidth - 0.5, borderRadius - strokeWidth)
             CGContextAddArcToPoint(context, rect.size.width - strokeWidth - 0.5, rect.size.height - strokeWidth - 0.5, rect.size.width / 2.0 + pointerWidth / 2.0 - strokeWidth + 0.5, rect.size.height - strokeWidth - 0.5, borderRadius - strokeWidth)
-            CGContextAddArcToPoint(context, borderRadius + strokeWidth + 0.5, rect.size.height - strokeWidth - 0.5, strokeWidth + 0.5, strokeWidth + 0.5, borderRadius - strokeWidth)
+            CGContextAddArcToPoint(context, borderRadius + strokeWidth + 0.5, rect.size.height - strokeWidth - 0.5, strokeWidth + 0.5 + borderRadius, strokeWidth + 0.5, borderRadius - strokeWidth)
         } else {
             // Draw and fill the bubble right
             CGContextBeginPath(context);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */; settings = {ASSET_TAGS = (); }; };
 		AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */; };
 		AC91A5B71BC2D91C00ED293F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B51BC2D91C00ED293F /* Main.storyboard */; };
 		AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B81BC2D91C00ED293F /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastomStyleCell.swift; sourceTree = "<group>"; };
 		AC91A5AE1BC2D91C00ED293F /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC91A5B61BC2D91C00ED293F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				ACA80D011BC39EB600441D6E /* Message.swift */,
 				ACA80D031BC39EC000441D6E /* User.swift */,
 				AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */,
+				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
 			);
 			path = Messenger;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				ACA80D041BC39EC000441D6E /* User.swift in Sources */,
 				ACA80D021BC39EB600441D6E /* Message.swift in Sources */,
 				AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */,
+				AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */,
 				AC9D05E11BC2F86B0051FABC /* MessengerCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

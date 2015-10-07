@@ -11,18 +11,22 @@ import UIKit
 private let reuseIdentifier = "CellMessage"
 
 class MessengerCollectionViewController: UICollectionViewController {
-    
-    private var messages = ["Lorem ipsum dolor sit amet.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa leo, mollis id tortor at posuere.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper vitae mi vel hendrerit. Suspendisse et feugiat mi. Donec quis sollicitudin quam, non porttitor nulla. Phasellus in luctus lorem, sed auctor enim. Suspendisse potenti. Ut maximus pharetra diam, ac laoreet est dignissim eu nullam."
-    ]
-    
+
+    private var messages = [Message(message: "Hello, :)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil))]
+    var count = 0
+   
     @IBOutlet weak var constraintMessageWidth: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Set the PinterestLayout delegate
+        if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
+            layout.delegate = self
+        }
         
+        collectionView!.backgroundColor = UIColor.clearColor()
+        collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
 
         // Do any additional setup after loading the view.
     }
@@ -31,7 +35,7 @@ class MessengerCollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -47,14 +51,13 @@ class MessengerCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-
-        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MessageCollectionViewCell
-        cell.messageView.inputMessage = false
-        cell.messageLable?.text = messages[indexPath.row]
-
         
-        // Configure the cell
+        cell.messageLable?.text = messages[indexPath.row].message
+        cell.usernameLable?.text = messages[indexPath.row].sender.firstName + "" + messages[indexPath.row].sender.lastName
+
+        cell.messageView.positionView = indexPath.row % 2 == 0 ? .Right : .Left
+        
         return cell
     }
     
@@ -66,6 +69,26 @@ class MessengerCollectionViewController: UICollectionViewController {
         // calculated sizes as well.
         collectionView?.reloadData()
     }
-    
 }
 
+
+extension MessengerCollectionViewController: MessageLayoutDelegate {
+    func collectionView(collectionView:UICollectionView, heightForMessageViewAtIndexPath indexPath:NSIndexPath, withWidth: CGFloat) -> CGFloat {
+        
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.text = messages[indexPath.row].message
+        
+        var labelFrame = label.frame
+        labelFrame.size.width = withWidth
+        label.frame = labelFrame
+        label.sizeToFit()
+        
+        return label.frame.height
+    }
+    
+    func collectioView(collectionView: UICollectionView, positionCellViewAtIndexPath indexPath: NSIndexPath) -> Int {
+        return indexPath.row % 2 == 0 ? 0 : 1
+            
+    }
+}
