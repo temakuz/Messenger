@@ -43,12 +43,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-dp-h48">
-                                <rect key="frame" x="20" y="20" width="560" height="530"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-wn-wd6">
+                                <rect key="frame" x="20" y="545" width="560" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-XL-jZS">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-WU-WL3">
+                                        <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                        <state key="normal" image="send"/>
+                                        <connections>
+                                            <action selector="sendButton" destination="U5l-8U-t35" eventType="touchUpInside" id="dSx-mC-c7x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="HLJ-XL-jZS" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="BVM-MV-u3G"/>
+                                    <constraint firstAttribute="bottom" secondItem="HLJ-XL-jZS" secondAttribute="bottom" id="EmW-NV-sYV"/>
+                                    <constraint firstAttribute="trailing" secondItem="lXV-WU-WL3" secondAttribute="trailing" id="RwE-Dh-HNb"/>
+                                    <constraint firstAttribute="bottom" secondItem="lXV-WU-WL3" secondAttribute="bottom" id="WzR-fZ-eBg"/>
+                                    <constraint firstItem="HLJ-XL-jZS" firstAttribute="leading" secondItem="zLo-wn-wd6" secondAttribute="leading" id="cgk-nH-Qyi"/>
+                                    <constraint firstItem="lXV-WU-WL3" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="eVB-dy-JUv"/>
+                                    <constraint firstItem="lXV-WU-WL3" firstAttribute="leading" secondItem="HLJ-XL-jZS" secondAttribute="trailing" constant="10" id="jGp-Nc-uK9"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-dp-h48">
+                                <rect key="frame" x="20" y="64" width="560" height="481"/>
                                 <collectionViewLayout key="collectionViewLayout" id="B8W-CU-EEt" customClass="CastomStyleCell" customModule="Messenger" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellMessage" id="WJH-Kp-fZS" customClass="MessageCollectionViewCell" customModule="Messenger" customModuleProvider="target">
-                                        <rect key="frame" x="134" y="64" width="293" height="333"/>
+                                        <rect key="frame" x="134" y="0.0" width="293" height="333"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="293" height="333"/>
@@ -124,47 +151,35 @@
                                     <outlet property="delegate" destination="U5l-8U-t35" id="Sfe-dP-4ky"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-wn-wd6">
-                                <rect key="frame" x="20" y="550" width="560" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-XL-jZS">
-                                        <rect key="frame" x="0.0" y="0.0" width="497" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="send" translatesAutoresizingMaskIntoConstraints="NO" id="iGy-RH-lLH">
-                                        <rect key="frame" x="510" y="0.0" width="50" height="50"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="iGy-RH-lLH" firstAttribute="leading" secondItem="HLJ-XL-jZS" secondAttribute="trailing" constant="13" id="0MT-Nh-Lsn"/>
-                                    <constraint firstItem="HLJ-XL-jZS" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="4xo-vD-zRp"/>
-                                    <constraint firstAttribute="bottom" secondItem="HLJ-XL-jZS" secondAttribute="bottom" id="SuW-hD-oN1"/>
-                                    <constraint firstAttribute="trailing" secondItem="iGy-RH-lLH" secondAttribute="trailing" id="TIv-nG-MUk"/>
-                                    <constraint firstItem="iGy-RH-lLH" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="bWA-xt-w6Y"/>
-                                    <constraint firstAttribute="bottom" secondItem="iGy-RH-lLH" secondAttribute="bottom" id="g3p-GK-JQk"/>
-                                    <constraint firstItem="HLJ-XL-jZS" firstAttribute="leading" secondItem="zLo-wn-wd6" secondAttribute="leading" id="hgH-nm-61i"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="XHl-dp-h48" secondAttribute="trailing" id="2xy-Qz-LHi"/>
                             <constraint firstItem="XHl-dp-h48" firstAttribute="leading" secondItem="xJe-Xt-j1C" secondAttribute="leadingMargin" id="30N-u4-vbs"/>
                             <constraint firstItem="zLo-wn-wd6" firstAttribute="leading" secondItem="xJe-Xt-j1C" secondAttribute="leadingMargin" id="LxW-Kn-uJ6"/>
-                            <constraint firstItem="XHl-dp-h48" firstAttribute="top" secondItem="jB6-uR-32x" secondAttribute="bottom" id="YgM-1s-ays"/>
                             <constraint firstItem="zLo-wn-wd6" firstAttribute="top" secondItem="XHl-dp-h48" secondAttribute="bottom" id="cm3-UQ-2YC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zLo-wn-wd6" secondAttribute="trailing" id="sAb-XC-hOz"/>
-                            <constraint firstItem="mcX-CQ-sNS" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="bottom" id="vze-S2-klo"/>
+                            <constraint firstItem="mcX-CQ-sNS" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="bottom" constant="5" id="vze-S2-klo"/>
+                            <constraint firstItem="XHl-dp-h48" firstAttribute="top" secondItem="jB6-uR-32x" secondAttribute="bottom" id="yeQ-2O-I1d"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="E0k-a2-PHL" appends="YES" id="1j3-U5-55Y"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="P21-Ei-XRa"/>
                     <connections>
+                        <outlet property="bottomConstraiteInputView" destination="vze-S2-klo" id="yjL-5z-FYs"/>
                         <outlet property="collectionView" destination="XHl-dp-h48" id="rBt-I1-6wr"/>
+                        <outlet property="messageTextField" destination="HLJ-XL-jZS" id="vwy-rU-803"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ey-lG-qoV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="E0k-a2-PHL">
+                    <connections>
+                        <action selector="tapGesture:" destination="U5l-8U-t35" id="EzR-vP-l6w"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2565" y="-131"/>
         </scene>
