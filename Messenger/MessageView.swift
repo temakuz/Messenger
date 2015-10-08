@@ -9,9 +9,6 @@
 import UIKit
 import CoreGraphics
 
-
-@IBDesignable
-
 class MessageView: UIView {
 
     enum PositionView: Int {

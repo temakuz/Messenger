@@ -13,10 +13,11 @@
 		AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B81BC2D91C00ED293F /* Assets.xcassets */; };
 		AC91A5BC1BC2D91C00ED293F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */; };
 		AC9745321BC3F46E00B37456 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		AC9D05E11BC2F86B0051FABC /* MessengerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D05E01BC2F86B0051FABC /* MessengerCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		AC9D05E11BC2F86B0051FABC /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		ACA80D001BC309B000441D6E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80CFF1BC309B000441D6E /* MessageView.swift */; settings = {ASSET_TAGS = (); }; };
 		ACA80D021BC39EB600441D6E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80D011BC39EB600441D6E /* Message.swift */; settings = {ASSET_TAGS = (); }; };
 		ACA80D041BC39EC000441D6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80D031BC39EC000441D6E /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		ACD19AF31BC687330074F590 /* FrameForImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD19AF21BC687330074F590 /* FrameForImageView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		AC91A5BB1BC2D91C00ED293F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91A5BD1BC2D91C00ED293F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
-		AC9D05E01BC2F86B0051FABC /* MessengerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerCollectionViewController.swift; sourceTree = "<group>"; };
+		AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
 		ACA80CFF1BC309B000441D6E /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		ACA80D011BC39EB600441D6E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ACA80D031BC39EC000441D6E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ACD19AF21BC687330074F590 /* FrameForImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameForImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +71,13 @@
 				AC91A5B81BC2D91C00ED293F /* Assets.xcassets */,
 				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
 				AC91A5BD1BC2D91C00ED293F /* Info.plist */,
-				AC9D05E01BC2F86B0051FABC /* MessengerCollectionViewController.swift */,
+				AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */,
 				ACA80CFF1BC309B000441D6E /* MessageView.swift */,
 				ACA80D011BC39EB600441D6E /* Message.swift */,
 				ACA80D031BC39EC000441D6E /* User.swift */,
 				AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */,
 				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
+				ACD19AF21BC687330074F590 /* FrameForImageView.swift */,
 			);
 			path = Messenger;
 			sourceTree = "<group>";
@@ -152,10 +155,11 @@
 				AC9745321BC3F46E00B37456 /* MessageCollectionViewCell.swift in Sources */,
 				ACA80D001BC309B000441D6E /* MessageView.swift in Sources */,
 				ACA80D041BC39EC000441D6E /* User.swift in Sources */,
+				ACD19AF31BC687330074F590 /* FrameForImageView.swift in Sources */,
 				ACA80D021BC39EB600441D6E /* Message.swift in Sources */,
 				AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */,
 				AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */,
-				AC9D05E11BC2F86B0051FABC /* MessengerCollectionViewController.swift in Sources */,
+				AC9D05E11BC2F86B0051FABC /* MessengerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

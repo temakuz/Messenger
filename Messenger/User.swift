@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct User {
     let firstName: String!
     let lastName: String!
-    let image: String!
+    let image: UIImage?
     
-    init(firstName: String!, lastName: String!, image: String!) {
+    init(firstName: String!, lastName: String!, image: UIImage?) {
         self.firstName = firstName
         self.lastName = lastName
         self.image = image

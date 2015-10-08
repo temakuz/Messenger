@@ -22,7 +22,7 @@ class CastomStyleCell: UICollectionViewLayout {
     
     // 2
     private var numberOfColumns = 1
-    private var cellPadding: CGFloat = 6.0
+    private var cellPadding: CGFloat = 0
     // 3
     private var cache = [UICollectionViewLayoutAttributes]()
     
@@ -47,7 +47,7 @@ class CastomStyleCell: UICollectionViewLayout {
                 for item in 0..<collectionView.numberOfItemsInSection(section) {
                     let indexPath = NSIndexPath(forItem: item, inSection: section)
                     let messageHeight = delegate.collectionView(collectionView, heightForMessageViewAtIndexPath: indexPath, withWidth: contentWidthCell)
-                    var positionCell = delegate.collectioView(collectionView, positionCellViewAtIndexPath: indexPath)
+                    let positionCell = delegate.collectioView(collectionView, positionCellViewAtIndexPath: indexPath)
                     let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                     
                     cellHeight += messageHeight
