@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */; settings = {ASSET_TAGS = (); }; };
+		AC463DF51BC72468008FCE2E /* SettingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */; settings = {ASSET_TAGS = (); }; };
 		AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */; };
 		AC91A5B71BC2D91C00ED293F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B51BC2D91C00ED293F /* Main.storyboard */; };
 		AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B81BC2D91C00ED293F /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastomStyleCell.swift; sourceTree = "<group>"; };
+		AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingKeyboard.swift; sourceTree = "<group>"; };
 		AC91A5AE1BC2D91C00ED293F /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC91A5B61BC2D91C00ED293F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC463DF01BC72334008FCE2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACA80D031BC39EC000441D6E /* User.swift */,
+				ACA80D011BC39EB600441D6E /* Message.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AC463DF11BC72348008FCE2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */,
+				AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */,
+				AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		AC463DF21BC72377008FCE2E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
+				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AC463DF31BC723BF008FCE2E /* SettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
+				ACD19AF21BC687330074F590 /* FrameForImageView.swift */,
+				ACA80CFF1BC309B000441D6E /* MessageView.swift */,
+			);
+			name = SettingCell;
+			sourceTree = "<group>";
+		};
 		AC91A5A51BC2D91B00ED293F = {
 			isa = PBXGroup;
 			children = (
@@ -66,18 +106,13 @@
 		AC91A5B01BC2D91C00ED293F /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				AC463DF31BC723BF008FCE2E /* SettingCell */,
+				AC463DF21BC72377008FCE2E /* View */,
+				AC463DF11BC72348008FCE2E /* Controller */,
+				AC463DF01BC72334008FCE2E /* Model */,
 				AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */,
-				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
 				AC91A5B81BC2D91C00ED293F /* Assets.xcassets */,
-				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
 				AC91A5BD1BC2D91C00ED293F /* Info.plist */,
-				AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */,
-				ACA80CFF1BC309B000441D6E /* MessageView.swift */,
-				ACA80D011BC39EB600441D6E /* Message.swift */,
-				ACA80D031BC39EC000441D6E /* User.swift */,
-				AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */,
-				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
-				ACD19AF21BC687330074F590 /* FrameForImageView.swift */,
 			);
 			path = Messenger;
 			sourceTree = "<group>";
@@ -159,6 +194,7 @@
 				ACA80D021BC39EB600441D6E /* Message.swift in Sources */,
 				AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */,
 				AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */,
+				AC463DF51BC72468008FCE2E /* SettingKeyboard.swift in Sources */,
 				AC9D05E11BC2F86B0051FABC /* MessengerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

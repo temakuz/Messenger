@@ -10,11 +10,11 @@ import UIKit
 
 private let reuseIdentifier = "CellMessage"
 
-class MessengerViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class MessengerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
-    @IBOutlet weak var textField: UITextField!
 
     @IBAction func tapGesture(sender: AnyObject) {
         view.endEditing(true)
@@ -38,11 +38,6 @@ class MessengerViewController: UIViewController, UITextFieldDelegate, UICollecti
         
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 5)
-
-        let center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
-        center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,35 +74,6 @@ class MessengerViewController: UIViewController, UITextFieldDelegate, UICollecti
         
         collectionView?.reloadData()
     }
-
-    func keyboardDidShow(notification: NSNotification) {
-        let info: NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
-        
-        let keyboardHeight: CGFloat = keyboardSize.height
-        
-        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                self.bottomConstraiteInputView.constant += keyboardHeight
-            }, completion: nil)
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-            self.bottomConstraiteInputView.constant = 5
-            }, completion: nil)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-        super.viewWillDisappear(true)
-    }
-
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        messageTextField.resignFirstResponder()
-        return true
-    }
-    
 }
 
 

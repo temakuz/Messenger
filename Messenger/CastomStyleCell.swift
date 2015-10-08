@@ -10,24 +10,20 @@ import UIKit
 
 class CastomStyleCell: UICollectionViewLayout {
 
-
     private enum PositionCell: Int {
         case Left
         case Right
     }
     
     private var positionCell = PositionCell.Right
-    // 1
+
     var delegate: MessageLayoutDelegate!
     
-    // 2
     private var numberOfColumns = 1
-    private var cellPadding: CGFloat = 0
-    // 3
+
     private var cache = [UICollectionViewLayoutAttributes]()
     
-   // private var cellHeight: CGFloat = 0
-    // 4
+    private var cellPadding: CGFloat = 0
     private var contentHeight: CGFloat  = 0.0
     private var contentWidth: CGFloat {
         let insets = collectionView!.contentInset
@@ -50,7 +46,6 @@ class CastomStyleCell: UICollectionViewLayout {
                     let positionCell = delegate.collectioView(collectionView, positionCellViewAtIndexPath: indexPath)
                     let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                     
-//                    cellHeight += messageHeight
                     let frame: CGRect
                     if positionCell == 0 {
                         frame = CGRectMake(contentWidth - contentWidthCell , contentHeight, contentWidthCell, messageHeight + 100)
@@ -65,8 +60,6 @@ class CastomStyleCell: UICollectionViewLayout {
             }
         }
     }
-
-    
     
     override func collectionViewContentSize() -> CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
@@ -87,7 +80,7 @@ class CastomStyleCell: UICollectionViewLayout {
 }
 
 protocol MessageLayoutDelegate: class {
-    // 1
     func collectionView(collectionView: UICollectionView, heightForMessageViewAtIndexPath indexPath:NSIndexPath, withWidth:CGFloat) -> CGFloat
+    
     func collectioView(collectionView: UICollectionView, positionCellViewAtIndexPath indexPath: NSIndexPath) -> Int
 }
