@@ -81,8 +81,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="293" height="333"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jaU-UX-ZGX">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jaU-UX-ZGX" customClass="FrameForImageView" customModule="Messenger" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="16" width="40" height="40"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="Tg5-cY-3Pz"/>
                                                         <constraint firstAttribute="height" constant="40" id="ypt-en-YD8"/>
@@ -139,7 +140,7 @@
                                         </constraints>
                                         <size key="customSize" width="293" height="333"/>
                                         <connections>
-                                            <outlet property="imageUser" destination="jaU-UX-ZGX" id="vzK-S3-feW"/>
+                                            <outlet property="imageUser" destination="jaU-UX-ZGX" id="3GG-VS-5f4"/>
                                             <outlet property="messageLable" destination="d4O-Bx-lDw" id="LF2-Na-VsX"/>
                                             <outlet property="messageView" destination="Re6-hV-asa" id="NxH-3L-aK7"/>
                                             <outlet property="usernameLable" destination="rou-ad-OCy" id="bmI-sE-evo"/>
