@@ -42,7 +42,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 5)
         
-//        collectionView.registerClass(UserCollectionViewCell.self, forCellWithReuseIdentifier: "InfoUserCell")
     }
 
     override func didReceiveMemoryWarning() {

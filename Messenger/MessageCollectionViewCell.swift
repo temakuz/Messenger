@@ -10,13 +10,9 @@ import UIKit
 
 class MessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var messageLable: UILabel!
-//    @IBOutlet weak var usernameLable: UILabel!
-    @IBOutlet weak var dateLable: UILabel!
-//    @IBOutlet weak var imageUser: UIImageView!
     @IBOutlet weak var messageView: MessageView!
-    
-    @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var dateView: UIView!
 
     var headerSubview: UIView?
 

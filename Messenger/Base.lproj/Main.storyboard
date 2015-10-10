@@ -78,7 +78,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVg-2j-gkW">
-                                                    <rect key="frame" x="286" y="209" width="0.0" height="15"/>
+                                                    <rect key="frame" x="286" y="209" width="20" height="15"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -99,7 +99,7 @@
                                         </constraints>
                                         <size key="customSize" width="291" height="267"/>
                                         <connections>
-                                            <outlet property="dateView" destination="IVg-2j-gkW" id="sUc-IH-Js2"/>
+                                            <outlet property="dateView" destination="IVg-2j-gkW" id="MOn-qE-2Bc"/>
                                             <outlet property="headerView" destination="aty-64-fwz" id="KM8-mn-Kbv"/>
                                             <outlet property="messageLable" destination="Vev-Ll-t06" id="2dO-v3-Seo"/>
                                             <outlet property="messageView" destination="4Tx-5g-Lz1" id="itZ-Nv-WW1"/>
