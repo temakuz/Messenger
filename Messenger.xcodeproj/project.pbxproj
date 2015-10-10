@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */; settings = {ASSET_TAGS = (); }; };
 		AC463DF51BC72468008FCE2E /* SettingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */; settings = {ASSET_TAGS = (); }; };
+		AC633F271BC91835001148C6 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC633F261BC91835001148C6 /* HeaderView.xib */; settings = {ASSET_TAGS = (); }; };
+		AC633F291BC918D5001148C6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC633F281BC918D5001148C6 /* HeaderView.swift */; settings = {ASSET_TAGS = (); }; };
+		AC633F2B1BC9668B001148C6 /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC633F2A1BC9668B001148C6 /* DateView.xib */; settings = {ASSET_TAGS = (); }; };
+		AC633F2D1BC966F2001148C6 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC633F2C1BC966F2001148C6 /* DateView.swift */; settings = {ASSET_TAGS = (); }; };
+		AC633F2F1BC96B4B001148C6 /* UIView+xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC633F2E1BC96B4B001148C6 /* UIView+xib.swift */; settings = {ASSET_TAGS = (); }; };
+		AC633F311BC97E31001148C6 /* MessageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC633F301BC97E31001148C6 /* MessageTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */; };
 		AC91A5B71BC2D91C00ED293F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B51BC2D91C00ED293F /* Main.storyboard */; };
 		AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B81BC2D91C00ED293F /* Assets.xcassets */; };
@@ -24,6 +30,12 @@
 /* Begin PBXFileReference section */
 		AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastomStyleCell.swift; sourceTree = "<group>"; };
 		AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingKeyboard.swift; sourceTree = "<group>"; };
+		AC633F261BC91835001148C6 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		AC633F281BC918D5001148C6 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		AC633F2A1BC9668B001148C6 /* DateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
+		AC633F2C1BC966F2001148C6 /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		AC633F2E1BC96B4B001148C6 /* UIView+xib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+xib.swift"; sourceTree = "<group>"; };
+		AC633F301BC97E31001148C6 /* MessageTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTextField.swift; sourceTree = "<group>"; };
 		AC91A5AE1BC2D91C00ED293F /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC91A5B11BC2D91C00ED293F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC91A5B61BC2D91C00ED293F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +85,12 @@
 			children = (
 				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
 				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
+				AC633F261BC91835001148C6 /* HeaderView.xib */,
+				AC633F281BC918D5001148C6 /* HeaderView.swift */,
+				AC633F2A1BC9668B001148C6 /* DateView.xib */,
+				AC633F2C1BC966F2001148C6 /* DateView.swift */,
+				AC633F2E1BC96B4B001148C6 /* UIView+xib.swift */,
+				AC633F301BC97E31001148C6 /* MessageTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -177,6 +195,8 @@
 				AC91A5BC1BC2D91C00ED293F /* LaunchScreen.storyboard in Resources */,
 				AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */,
 				AC91A5B71BC2D91C00ED293F /* Main.storyboard in Resources */,
+				AC633F271BC91835001148C6 /* HeaderView.xib in Resources */,
+				AC633F2B1BC9668B001148C6 /* DateView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +213,11 @@
 				ACD19AF31BC687330074F590 /* FrameForImageView.swift in Sources */,
 				ACA80D021BC39EB600441D6E /* Message.swift in Sources */,
 				AC91A5B21BC2D91C00ED293F /* AppDelegate.swift in Sources */,
+				AC633F2F1BC96B4B001148C6 /* UIView+xib.swift in Sources */,
 				AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */,
+				AC633F291BC918D5001148C6 /* HeaderView.swift in Sources */,
+				AC633F2D1BC966F2001148C6 /* DateView.swift in Sources */,
+				AC633F311BC97E31001148C6 /* MessageTextField.swift in Sources */,
 				AC463DF51BC72468008FCE2E /* SettingKeyboard.swift in Sources */,
 				AC9D05E11BC2F86B0051FABC /* MessengerViewController.swift in Sources */,
 			);

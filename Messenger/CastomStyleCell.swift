@@ -8,6 +8,8 @@
 
 import UIKit
 
+@IBDesignable
+
 class CastomStyleCell: UICollectionViewLayout {
 
     private enum PositionCell: Int {
@@ -48,9 +50,9 @@ class CastomStyleCell: UICollectionViewLayout {
                     
                     let frame: CGRect
                     if positionCell == 0 {
-                        frame = CGRectMake(contentWidth - contentWidthCell , contentHeight, contentWidthCell, messageHeight + 100)
+                        frame = CGRectMake(contentWidth - contentWidthCell , contentHeight, contentWidthCell, messageHeight + 45)
                     } else {
-                        frame = CGRectMake(cellPadding, contentHeight, contentWidthCell, messageHeight + 100)
+                        frame = CGRectMake(cellPadding, contentHeight, contentWidthCell, messageHeight + 85)
                     }
                     contentHeight += CGRectGetHeight(frame)
                     

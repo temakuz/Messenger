@@ -24,7 +24,7 @@ class MessageView: UIView {
         let pointerWidth: CGFloat = 15.0
         let borderRadius: CGFloat = 8.0
         let strokeWidth: CGFloat = 1.5
-        let borderColor: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor
+        let borderColor: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.15).CGColor
         let backgroundColor: CGColorRef = UIColor.whiteColor().CGColor
         let backgroundColorCurrentCell: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
 

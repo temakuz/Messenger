@@ -15,7 +15,10 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
-
+    
+    
+    var array = [AnyObject]()
+    
     @IBAction func tapGesture(sender: AnyObject) {
         view.endEditing(true)
     }
@@ -38,6 +41,8 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 5)
+        
+//        collectionView.registerClass(UserCollectionViewCell.self, forCellWithReuseIdentifier: "InfoUserCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,10 +65,28 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.messageLable?.textColor = UIColor.blackColor().colorWithAlphaComponent(0.55)
         cell.messageLable?.text = messages[indexPath.row].message
         
-        cell.usernameLable?.textColor = UIColor.blackColor().colorWithAlphaComponent(0.85)
-        cell.usernameLable?.text = messages[indexPath.row].sender.firstName + "" + messages[indexPath.row].sender.lastName
+        cell.headerSubview?.removeFromSuperview()
+        cell.headerSubview = nil
         
-        cell.messageView.positionView = indexPath.row % 2 == 0 ? .Right : .Left
+        if indexPath.row % 2 == 0 {
+            let dateView = DateView()
+            cell.dateView.addSubview(dateView)
+            dateView.dateLable?.text = "24:00PM"
+            
+            cell.messageView.positionView = .Right
+
+        } else {
+            cell.messageView.positionView = .Left
+            let headerCell = HeaderView()
+            
+
+            cell.headerView.addSubview(headerCell)
+            headerCell.usernameLable?.text = "Artem"
+            headerCell.dateLable?.text = "22:30PM"
+            cell.addHeaderView(headerCell)
+
+            
+        }
         cell.messageView.setNeedsDisplay()
         
         return cell
@@ -89,7 +112,7 @@ extension MessengerViewController: MessageLayoutDelegate {
         label.frame = labelFrame
         label.sizeToFit()
         
-        return label.frame.height
+        return label.frame.height + 2
     }
     
     func collectioView(collectionView: UICollectionView, positionCellViewAtIndexPath indexPath: NSIndexPath) -> Int {
