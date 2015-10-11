@@ -98,13 +98,6 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		AC463DF31BC723BF008FCE2E /* SettingCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SettingCell;
-			sourceTree = "<group>";
-		};
 		AC91A5A51BC2D91B00ED293F = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +117,6 @@
 		AC91A5B01BC2D91C00ED293F /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				AC463DF31BC723BF008FCE2E /* SettingCell */,
 				AC463DF21BC72377008FCE2E /* View */,
 				AC463DF11BC72348008FCE2E /* Controller */,
 				AC463DF01BC72334008FCE2E /* Model */,

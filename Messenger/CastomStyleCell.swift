@@ -79,6 +79,11 @@ class CastomStyleCell: UICollectionViewLayout {
         return layoutAttributes
     }
     
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+        
+        return cache[indexPath.row]
+    }
+    
 }
 
 protocol MessageLayoutDelegate: class {

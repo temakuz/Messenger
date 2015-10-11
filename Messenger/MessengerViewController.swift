@@ -26,7 +26,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         view.endEditing(true)
     }
     
-    private var messages = [Message(message: "Hello, Mark:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Mark", lastName: "Levin", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:) d s gs dsg dfg sdfg dfsg d", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:) fsgj nj dfgb mndfb gmdnfbg df gbdfmnb ndmf", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artenb asnm bashdf vadshf gasdjhfg adjhfg kajsdhfg kajsdhfg kjadhsg fjsdhgf kjsadhm:) ", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil))]
+    private var messages = [Message(message: "Hello, Mark:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Mark", lastName: "Levin", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:) d s gs dsg dfg sdfg dfsg d", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:) fsgj nj dfgb mndfb gmdnfbg df gbdfmnb ndmf", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, hgf kjsadhm:) ", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil))]
     
     
     override func viewDidLoad() {
@@ -39,10 +39,8 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
             layout.delegate = self
         }
-        
         collectionView!.backgroundColor = UIColor.clearColor()
-        collectionView!.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 20, right: 5)
-        
+        collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +64,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.messageLable?.text = messages[indexPath.row].message
         
         cell.headerSubview?.removeFromSuperview()
-       // cell.headerSubview = nil
         
         if indexPath.row % 2 == 0 {
             let headerCell = DateView()
@@ -84,8 +81,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
             headerCell.usernameLable?.text = "Artem"
             headerCell.dateLable?.text = "22:30PM"
             cell.addHeaderView(headerCell)
-
-            
         }
         cell.messageView.setNeedsDisplay()
         
@@ -96,6 +91,9 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidAppear(animated)
         
         collectionView?.reloadData()
+        let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
+        self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
+        
     }
 }
 
