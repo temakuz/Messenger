@@ -18,38 +18,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-wn-wd6">
-                                <rect key="frame" x="20" y="538" width="560" height="50"/>
+                                <rect key="frame" x="12" y="532" width="576" height="56"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hly-hU-obF">
+                                        <rect key="frame" x="-8" y="0.0" width="592" height="1"/>
+                                        <color key="backgroundColor" red="0.81568627450980391" green="0.81960784313725488" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="vkc-fy-Q9Q"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-WU-WL3">
-                                        <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="526" y="6" width="50" height="50"/>
                                         <state key="normal" image="send"/>
                                         <connections>
                                             <action selector="sendButton" destination="U5l-8U-t35" eventType="touchUpInside" id="dSx-mC-c7x"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-XL-jZS" customClass="MessageTextField" customModule="Messenger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="50"/>
+                                        <rect key="frame" x="0.0" y="6" width="516" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="HLJ-XL-jZS" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="BVM-MV-u3G"/>
+                                    <constraint firstItem="hly-hU-obF" firstAttribute="leading" secondItem="zLo-wn-wd6" secondAttribute="leading" constant="-8" id="3r4-C7-nRu"/>
                                     <constraint firstAttribute="bottom" secondItem="HLJ-XL-jZS" secondAttribute="bottom" id="EmW-NV-sYV"/>
                                     <constraint firstAttribute="trailing" secondItem="lXV-WU-WL3" secondAttribute="trailing" id="RwE-Dh-HNb"/>
                                     <constraint firstAttribute="bottom" secondItem="lXV-WU-WL3" secondAttribute="bottom" id="WzR-fZ-eBg"/>
+                                    <constraint firstItem="lXV-WU-WL3" firstAttribute="leading" secondItem="hly-hU-obF" secondAttribute="trailing" constant="-58" id="bMp-VS-Dql"/>
                                     <constraint firstItem="HLJ-XL-jZS" firstAttribute="leading" secondItem="zLo-wn-wd6" secondAttribute="leading" id="cgk-nH-Qyi"/>
-                                    <constraint firstItem="lXV-WU-WL3" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="eVB-dy-JUv"/>
+                                    <constraint firstItem="HLJ-XL-jZS" firstAttribute="top" secondItem="hly-hU-obF" secondAttribute="bottom" constant="5" id="cv6-Hv-Syl"/>
                                     <constraint firstItem="lXV-WU-WL3" firstAttribute="leading" secondItem="HLJ-XL-jZS" secondAttribute="trailing" constant="10" id="jGp-Nc-uK9"/>
+                                    <constraint firstItem="lXV-WU-WL3" firstAttribute="top" secondItem="hly-hU-obF" secondAttribute="bottom" constant="5" id="nDP-EQ-R11"/>
+                                    <constraint firstItem="hly-hU-obF" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="rFS-0x-9Ev"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-dp-h48">
-                                <rect key="frame" x="20" y="64" width="560" height="481"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-dp-h48">
+                                <rect key="frame" x="0.0" y="64" width="600" height="465"/>
                                 <collectionViewLayout key="collectionViewLayout" id="B8W-CU-EEt" customClass="CastomStyleCell" customModule="Messenger" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellMessage" id="WJH-Kp-fZS" customClass="MessageCollectionViewCell" customModule="Messenger" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="0.0" width="291" height="267"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="267"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="291" height="267"/>
@@ -74,11 +84,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aty-64-fwz">
-                                                    <rect key="frame" x="12" y="10" width="269" height="199"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVg-2j-gkW">
-                                                    <rect key="frame" x="286" y="209" width="20" height="15"/>
+                                                    <rect key="frame" x="12" y="10" width="264" height="199"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -89,17 +95,13 @@
                                             <constraint firstItem="aty-64-fwz" firstAttribute="leading" secondItem="WJH-Kp-fZS" secondAttribute="leading" constant="12" id="Fc4-eQ-NQu"/>
                                             <constraint firstItem="aty-64-fwz" firstAttribute="top" secondItem="WJH-Kp-fZS" secondAttribute="top" constant="10" id="Gch-Q9-I7P"/>
                                             <constraint firstItem="4Tx-5g-Lz1" firstAttribute="leading" secondItem="WJH-Kp-fZS" secondAttribute="leading" constant="5" id="KLI-A7-W52"/>
-                                            <constraint firstItem="IVg-2j-gkW" firstAttribute="trailing" secondItem="4Tx-5g-Lz1" secondAttribute="trailing" id="Oe8-6m-uDe"/>
-                                            <constraint firstAttribute="trailing" secondItem="aty-64-fwz" secondAttribute="trailing" constant="10" id="YKK-xX-gVf"/>
+                                            <constraint firstAttribute="trailing" secondItem="aty-64-fwz" secondAttribute="trailing" constant="15" id="YKK-xX-gVf"/>
                                             <constraint firstAttribute="trailing" secondItem="4Tx-5g-Lz1" secondAttribute="trailing" constant="5" id="YR6-Vv-SM1"/>
-                                            <constraint firstItem="4Tx-5g-Lz1" firstAttribute="top" secondItem="IVg-2j-gkW" secondAttribute="bottom" constant="2" id="l5U-Mv-iIg"/>
                                             <constraint firstAttribute="bottom" secondItem="4Tx-5g-Lz1" secondAttribute="bottom" constant="5" id="ofh-ve-28t"/>
                                             <constraint firstItem="4Tx-5g-Lz1" firstAttribute="top" secondItem="aty-64-fwz" secondAttribute="bottom" constant="2" id="sE0-q3-EWJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="IVg-2j-gkW" secondAttribute="trailing" constant="5" id="yl1-mm-5Iy"/>
                                         </constraints>
                                         <size key="customSize" width="291" height="267"/>
                                         <connections>
-                                            <outlet property="dateView" destination="IVg-2j-gkW" id="MOn-qE-2Bc"/>
                                             <outlet property="headerView" destination="aty-64-fwz" id="KM8-mn-Kbv"/>
                                             <outlet property="messageLable" destination="Vev-Ll-t06" id="2dO-v3-Seo"/>
                                             <outlet property="messageView" destination="4Tx-5g-Lz1" id="itZ-Nv-WW1"/>
@@ -117,9 +119,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="XHl-dp-h48" secondAttribute="trailing" id="3kh-9I-0gd"/>
                             <constraint firstItem="XHl-dp-h48" firstAttribute="leading" secondItem="xJe-Xt-j1C" secondAttribute="leading" id="7FB-7H-cpP"/>
-                            <constraint firstItem="zLo-wn-wd6" firstAttribute="leading" secondItem="xJe-Xt-j1C" secondAttribute="leadingMargin" id="LxW-Kn-uJ6"/>
-                            <constraint firstItem="zLo-wn-wd6" firstAttribute="top" secondItem="XHl-dp-h48" secondAttribute="bottom" id="cm3-UQ-2YC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zLo-wn-wd6" secondAttribute="trailing" id="sAb-XC-hOz"/>
+                            <constraint firstItem="zLo-wn-wd6" firstAttribute="leading" secondItem="xJe-Xt-j1C" secondAttribute="leadingMargin" constant="-8" id="LxW-Kn-uJ6"/>
+                            <constraint firstItem="zLo-wn-wd6" firstAttribute="top" secondItem="XHl-dp-h48" secondAttribute="bottom" constant="3" id="cm3-UQ-2YC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zLo-wn-wd6" secondAttribute="trailing" constant="-8" id="sAb-XC-hOz"/>
                             <constraint firstItem="mcX-CQ-sNS" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="bottom" constant="12" id="vze-S2-klo"/>
                             <constraint firstItem="XHl-dp-h48" firstAttribute="top" secondItem="jB6-uR-32x" secondAttribute="bottom" id="yeQ-2O-I1d"/>
                         </constraints>

@@ -50,6 +50,6 @@ class FrameForImageView: UIImageView {
     private func install() {
         cornerRadius = 4
         borderWidth = 1
-        borderColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        borderColor = UIColor.blackColor().colorWithAlphaComponent(0.15)
     }
 }

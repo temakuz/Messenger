@@ -50,7 +50,7 @@ class CastomStyleCell: UICollectionViewLayout {
                     
                     let frame: CGRect
                     if positionCell == 0 {
-                        frame = CGRectMake(contentWidth - contentWidthCell , contentHeight, contentWidthCell, messageHeight + 45)
+                        frame = CGRectMake(contentWidth - contentWidthCell , contentHeight, contentWidthCell, messageHeight + 55)
                     } else {
                         frame = CGRectMake(cellPadding, contentHeight, contentWidthCell, messageHeight + 85)
                     }

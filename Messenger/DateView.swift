@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-@IBDesignable
-
 class DateView: UIView {
     
     @IBOutlet weak var dateLable: UILabel!

@@ -83,6 +83,9 @@
 		AC463DF21BC72377008FCE2E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
+				ACA80CFF1BC309B000441D6E /* MessageView.swift */,
+				ACD19AF21BC687330074F590 /* FrameForImageView.swift */,
 				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
 				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
 				AC633F261BC91835001148C6 /* HeaderView.xib */,
@@ -98,9 +101,6 @@
 		AC463DF31BC723BF008FCE2E /* SettingCell */ = {
 			isa = PBXGroup;
 			children = (
-				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
-				ACD19AF21BC687330074F590 /* FrameForImageView.swift */,
-				ACA80CFF1BC309B000441D6E /* MessageView.swift */,
 			);
 			name = SettingCell;
 			sourceTree = "<group>";

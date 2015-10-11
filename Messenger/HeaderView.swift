@@ -16,6 +16,8 @@ class HeaderView: UIView {
     @IBOutlet weak var userImage: FrameForImageView!
     @IBOutlet weak var dateLable: UILabel!
     
+    @IBOutlet weak var dateOutgoingMessageLable: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViewFromNibNamed("HeaderView")

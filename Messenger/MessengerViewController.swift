@@ -31,6 +31,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
         
         messageTextField.delegate = self
 
@@ -65,19 +66,19 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.messageLable?.text = messages[indexPath.row].message
         
         cell.headerSubview?.removeFromSuperview()
-        cell.headerSubview = nil
+       // cell.headerSubview = nil
         
         if indexPath.row % 2 == 0 {
-            let dateView = DateView()
-            cell.dateView.addSubview(dateView)
-            dateView.dateLable?.text = "24:00PM"
+            let headerCell = DateView()
+            cell.headerView.addSubview(headerCell)
+            headerCell.dateLable?.text = "24:00PM"
+            cell.addHeaderView(headerCell)
             
             cell.messageView.positionView = .Right
 
         } else {
             cell.messageView.positionView = .Left
             let headerCell = HeaderView()
-            
 
             cell.headerView.addSubview(headerCell)
             headerCell.usernameLable?.text = "Artem"
