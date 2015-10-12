@@ -5,13 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="Messenger" customModuleProvider="target">
-            <connections>
-                <outlet property="dateLable" destination="dER-oL-d8j" id="XNX-aN-JUT"/>
-                <outlet property="userImage" destination="T6b-gE-TDn" id="9WU-dR-ePV"/>
-                <outlet property="usernameLable" destination="PmN-fo-q8x" id="6cx-pw-coN"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoView" customModule="Messenger" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="199" height="44"/>
@@ -48,7 +42,7 @@
                 <constraint firstItem="dER-oL-d8j" firstAttribute="top" secondItem="PmN-fo-q8x" secondAttribute="bottom" constant="6" id="tKA-pO-gJU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="87.5" y="38"/>
+            <point key="canvasLocation" x="232.5" y="97"/>
         </view>
     </objects>
 </document>

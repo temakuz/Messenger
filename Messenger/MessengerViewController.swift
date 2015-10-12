@@ -15,11 +15,11 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
-    
     @IBOutlet weak var titleCollectionView: UINavigationItem!
-    
+    private let refreshControl = UIRefreshControl()
+
     var array = [AnyObject]()
-    
+
     @IBAction func tapGesture(sender: AnyObject) {
         view.endEditing(true)
     }
@@ -32,9 +32,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        
-        messageTextField.delegate = self
 
         // Set the PinterestLayout delegate
         if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
@@ -45,6 +42,12 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         
         titleCollectionView.title? = "Chat"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor().colorWithAlphaComponent(0.55)]
+        
+        messageTextField.delegate = self
+        
+        refreshControl.addTarget(self, action: "loadMessages", forControlEvents: .ValueChanged)
+        collectionView.addSubview(refreshControl)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +67,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MessageCollectionViewCell
+
         cell.messageLable?.textColor = UIColor.blackColor().colorWithAlphaComponent(0.55)
         cell.messageLable?.text = messages[indexPath.row].message
         
@@ -99,6 +103,25 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
         self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
         
+    }
+    
+    func loadMessages() {
+        var indexPaths = [NSIndexPath]()
+        
+        for item in 0..<5 {
+            let message = Message(message: nil, date: nil, sender: nil, recipient: nil)
+            messages.insert(message, atIndex: item)
+            indexPaths.append(NSIndexPath(forItem: item, inSection: 0))
+        }
+        
+        refreshControl.endRefreshing()
+        
+        collectionView.reloadData()
+        collectionView.performBatchUpdates(nil, completion: nil)
+        
+        if let indexPath = indexPaths.last {
+            collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
+        }
     }
 }
 
