@@ -67,7 +67,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MessageCollectionViewCell
-
         cell.messageLable?.textColor = UIColor.blackColor().colorWithAlphaComponent(0.55)
         cell.messageLable?.text = messages[indexPath.row].message
         
