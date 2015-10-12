@@ -68,9 +68,10 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.messageLable?.text = messages[indexPath.row].message
         
         cell.headerSubview?.removeFromSuperview()
-        
+
         if indexPath.row % 2 == 0 {
             let headerCell = DateView()
+            
             cell.headerView.addSubview(headerCell)
             headerCell.dateLable?.text = "24:00PM"
             cell.addHeaderView(headerCell)
@@ -103,11 +104,13 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
 
 
 extension MessengerViewController: MessageLayoutDelegate {
+
     func collectionView(collectionView:UICollectionView, heightForMessageViewAtIndexPath indexPath:NSIndexPath, withWidth: CGFloat) -> CGFloat {
-        
+
         let label = UILabel()
         label.numberOfLines = 0
         label.text = messages[indexPath.row].message
+        label.preferredMaxLayoutWidth = withWidth - 40
         
         var labelFrame = label.frame
         labelFrame.size.width = withWidth

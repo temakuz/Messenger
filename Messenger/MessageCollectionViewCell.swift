@@ -10,7 +10,7 @@ import UIKit
 
 class MessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var messageLable: UILabel!
-    @IBOutlet weak var messageView: MessageView!
+    @IBOutlet weak var messageView: MessageBabbleView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var dateView: UIView!
 
@@ -25,6 +25,7 @@ class MessageCollectionViewCell: UICollectionViewCell {
         pinHeader(view)
         
     }
+    
     
     func pinHeader(view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false

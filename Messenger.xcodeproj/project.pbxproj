@@ -19,9 +19,11 @@
 		AC91A5B71BC2D91C00ED293F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B51BC2D91C00ED293F /* Main.storyboard */; };
 		AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5B81BC2D91C00ED293F /* Assets.xcassets */; };
 		AC91A5BC1BC2D91C00ED293F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */; };
+		AC953D9E1BCBE74900EF0DC3 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC953D9D1BCBE74900EF0DC3 /* MessageView.xib */; settings = {ASSET_TAGS = (); }; };
+		AC953DA01BCBE78A00EF0DC3 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC953D9F1BCBE78A00EF0DC3 /* MessageView.swift */; settings = {ASSET_TAGS = (); }; };
 		AC9745321BC3F46E00B37456 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		AC9D05E11BC2F86B0051FABC /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		ACA80D001BC309B000441D6E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80CFF1BC309B000441D6E /* MessageView.swift */; settings = {ASSET_TAGS = (); }; };
+		ACA80D001BC309B000441D6E /* MessageBabbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80CFF1BC309B000441D6E /* MessageBabbleView.swift */; settings = {ASSET_TAGS = (); }; };
 		ACA80D021BC39EB600441D6E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80D011BC39EB600441D6E /* Message.swift */; settings = {ASSET_TAGS = (); }; };
 		ACA80D041BC39EC000441D6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80D031BC39EC000441D6E /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		ACD19AF31BC687330074F590 /* FrameForImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD19AF21BC687330074F590 /* FrameForImageView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -42,9 +44,11 @@
 		AC91A5B81BC2D91C00ED293F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC91A5BB1BC2D91C00ED293F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC91A5BD1BC2D91C00ED293F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC953D9D1BCBE74900EF0DC3 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
+		AC953D9F1BCBE78A00EF0DC3 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
-		ACA80CFF1BC309B000441D6E /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		ACA80CFF1BC309B000441D6E /* MessageBabbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBabbleView.swift; sourceTree = "<group>"; };
 		ACA80D011BC39EB600441D6E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ACA80D031BC39EC000441D6E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACD19AF21BC687330074F590 /* FrameForImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameForImageView.swift; sourceTree = "<group>"; };
@@ -84,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
-				ACA80CFF1BC309B000441D6E /* MessageView.swift */,
+				ACA80CFF1BC309B000441D6E /* MessageBabbleView.swift */,
 				ACD19AF21BC687330074F590 /* FrameForImageView.swift */,
 				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
 				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
@@ -94,6 +98,8 @@
 				AC633F2C1BC966F2001148C6 /* DateView.swift */,
 				AC633F2E1BC96B4B001148C6 /* UIView+xib.swift */,
 				AC633F301BC97E31001148C6 /* MessageTextField.swift */,
+				AC953D9D1BCBE74900EF0DC3 /* MessageView.xib */,
+				AC953D9F1BCBE78A00EF0DC3 /* MessageView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -158,6 +164,7 @@
 				TargetAttributes = {
 					AC91A5AD1BC2D91B00ED293F = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = E96A4H45PK;
 					};
 				};
 			};
@@ -184,6 +191,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC953D9E1BCBE74900EF0DC3 /* MessageView.xib in Resources */,
 				AC91A5BC1BC2D91C00ED293F /* LaunchScreen.storyboard in Resources */,
 				AC91A5B91BC2D91C00ED293F /* Assets.xcassets in Resources */,
 				AC91A5B71BC2D91C00ED293F /* Main.storyboard in Resources */,
@@ -200,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC9745321BC3F46E00B37456 /* MessageCollectionViewCell.swift in Sources */,
-				ACA80D001BC309B000441D6E /* MessageView.swift in Sources */,
+				ACA80D001BC309B000441D6E /* MessageBabbleView.swift in Sources */,
 				ACA80D041BC39EC000441D6E /* User.swift in Sources */,
 				ACD19AF31BC687330074F590 /* FrameForImageView.swift in Sources */,
 				ACA80D021BC39EB600441D6E /* Message.swift in Sources */,
@@ -211,6 +219,7 @@
 				AC633F2D1BC966F2001148C6 /* DateView.swift in Sources */,
 				AC633F311BC97E31001148C6 /* MessageTextField.swift in Sources */,
 				AC463DF51BC72468008FCE2E /* SettingKeyboard.swift in Sources */,
+				AC953DA01BCBE78A00EF0DC3 /* MessageView.swift in Sources */,
 				AC9D05E11BC2F86B0051FABC /* MessengerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,10 +333,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Messenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Devart.Messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -335,10 +348,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Messenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Devart.Messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
