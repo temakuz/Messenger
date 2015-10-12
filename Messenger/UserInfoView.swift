@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class HeaderView: UIView {
+class UserInfoView: UIView {
     
     @IBOutlet weak var usernameLable: UILabel!
     @IBOutlet weak var userImage: FrameForImageView!
@@ -20,12 +20,12 @@ class HeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addViewFromNibNamed("HeaderView")
+        addViewFromNibNamed("UserInfoView")
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        addViewFromNibNamed("HeaderView")
+        addViewFromNibNamed("UserInfoView")
     }
     
 }

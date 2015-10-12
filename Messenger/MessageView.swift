@@ -20,8 +20,8 @@ class MessageView: UIView {
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         
-        let pointerHeight: CGFloat = 15.0
-        let pointerWidth: CGFloat = 15.0
+        let pointerHeight: CGFloat = 10.0
+        let pointerWidth: CGFloat = 10.0
         let borderRadius: CGFloat = 8.0
         let strokeWidth: CGFloat = 1.5
         let borderColor: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.15).CGColor

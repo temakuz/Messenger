@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-wn-wd6">
-                                <rect key="frame" x="12" y="532" width="576" height="56"/>
+                                <rect key="frame" x="12" y="527" width="576" height="61"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hly-hU-obF">
                                         <rect key="frame" x="-8" y="0.0" width="592" height="1"/>
@@ -28,14 +28,14 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-WU-WL3">
-                                        <rect key="frame" x="526" y="6" width="50" height="50"/>
+                                        <rect key="frame" x="526" y="11" width="50" height="50"/>
                                         <state key="normal" image="send"/>
                                         <connections>
                                             <action selector="sendButton" destination="U5l-8U-t35" eventType="touchUpInside" id="dSx-mC-c7x"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-XL-jZS" customClass="MessageTextField" customModule="Messenger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6" width="516" height="50"/>
+                                        <rect key="frame" x="0.0" y="6" width="516" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -50,12 +50,12 @@
                                     <constraint firstItem="HLJ-XL-jZS" firstAttribute="leading" secondItem="zLo-wn-wd6" secondAttribute="leading" id="cgk-nH-Qyi"/>
                                     <constraint firstItem="HLJ-XL-jZS" firstAttribute="top" secondItem="hly-hU-obF" secondAttribute="bottom" constant="5" id="cv6-Hv-Syl"/>
                                     <constraint firstItem="lXV-WU-WL3" firstAttribute="leading" secondItem="HLJ-XL-jZS" secondAttribute="trailing" constant="10" id="jGp-Nc-uK9"/>
-                                    <constraint firstItem="lXV-WU-WL3" firstAttribute="top" secondItem="hly-hU-obF" secondAttribute="bottom" constant="5" id="nDP-EQ-R11"/>
+                                    <constraint firstItem="lXV-WU-WL3" firstAttribute="top" secondItem="hly-hU-obF" secondAttribute="bottom" constant="10" id="nDP-EQ-R11"/>
                                     <constraint firstItem="hly-hU-obF" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="rFS-0x-9Ev"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-dp-h48">
-                                <rect key="frame" x="0.0" y="64" width="600" height="465"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="460"/>
                                 <collectionViewLayout key="collectionViewLayout" id="B8W-CU-EEt" customClass="CastomStyleCell" customModule="Messenger" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellMessage" id="WJH-Kp-fZS" customClass="MessageCollectionViewCell" customModule="Messenger" customModuleProvider="target">
@@ -134,6 +134,7 @@
                         <outlet property="bottomConstraiteInputView" destination="vze-S2-klo" id="yjL-5z-FYs"/>
                         <outlet property="collectionView" destination="XHl-dp-h48" id="rBt-I1-6wr"/>
                         <outlet property="messageTextField" destination="HLJ-XL-jZS" id="vwy-rU-803"/>
+                        <outlet property="titleCollectionView" destination="P21-Ei-XRa" id="QHg-rj-Cs0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ey-lG-qoV" userLabel="First Responder" sceneMemberID="firstResponder"/>

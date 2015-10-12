@@ -16,6 +16,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
     
+    @IBOutlet weak var titleCollectionView: UINavigationItem!
     
     var array = [AnyObject]()
     
@@ -41,6 +42,9 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        
+        titleCollectionView.title? = "Chat"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor().colorWithAlphaComponent(0.55)]
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +79,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
 
         } else {
             cell.messageView.positionView = .Left
-            let headerCell = HeaderView()
+            let headerCell = UserInfoView()
 
             cell.headerView.addSubview(headerCell)
             headerCell.usernameLable?.text = "Artem"
