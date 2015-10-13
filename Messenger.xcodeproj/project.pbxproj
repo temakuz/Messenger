@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AC3AAF5E1BC4650100A62CFB /* CastomStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */; settings = {ASSET_TAGS = (); }; };
-		AC463DF51BC72468008FCE2E /* SettingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */; settings = {ASSET_TAGS = (); }; };
 		AC633F271BC91835001148C6 /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC633F261BC91835001148C6 /* UserInfoView.xib */; settings = {ASSET_TAGS = (); }; };
 		AC633F291BC918D5001148C6 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC633F281BC918D5001148C6 /* UserInfoView.swift */; settings = {ASSET_TAGS = (); }; };
 		AC633F2B1BC9668B001148C6 /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC633F2A1BC9668B001148C6 /* DateView.xib */; settings = {ASSET_TAGS = (); }; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastomStyleCell.swift; sourceTree = "<group>"; };
-		AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingKeyboard.swift; sourceTree = "<group>"; };
 		AC633F261BC91835001148C6 /* UserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoView.xib; sourceTree = "<group>"; };
 		AC633F281BC918D5001148C6 /* UserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		AC633F2A1BC9668B001148C6 /* DateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 			children = (
 				AC9745311BC3F46E00B37456 /* MessageCollectionViewCell.swift */,
 				AC9D05E01BC2F86B0051FABC /* MessengerViewController.swift */,
-				AC463DF41BC72468008FCE2E /* SettingKeyboard.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -218,7 +215,6 @@
 				AC633F291BC918D5001148C6 /* UserInfoView.swift in Sources */,
 				AC633F2D1BC966F2001148C6 /* DateView.swift in Sources */,
 				AC633F311BC97E31001148C6 /* MessageTextField.swift in Sources */,
-				AC463DF51BC72468008FCE2E /* SettingKeyboard.swift in Sources */,
 				AC953DA01BCBE78A00EF0DC3 /* MessageView.swift in Sources */,
 				AC9D05E11BC2F86B0051FABC /* MessengerViewController.swift in Sources */,
 			);

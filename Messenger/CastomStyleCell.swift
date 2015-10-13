@@ -33,10 +33,12 @@ class CastomStyleCell: UICollectionViewLayout {
     }
     
     override func prepareLayout() {
-        
+
         guard let collectionView = collectionView else {
             return
         }
+        contentHeight = 0
+        cache.removeAll()
         
         let contentWidthCell = contentWidth * 0.7
         
@@ -55,12 +57,15 @@ class CastomStyleCell: UICollectionViewLayout {
                         frame = CGRectMake(cellPadding, contentHeight, contentWidthCell, messageHeight + 85)
                     }
                     contentHeight += CGRectGetHeight(frame)
-                    
+
                     attributes.frame = frame
                     cache.append(attributes)
+                    
                 }
             }
         }
+        
+        collectionView.contentOffset = CGPoint(x: 0, y: contentHeight - collectionView.bounds.height + collectionView.contentInset.bottom)
     }
     
     override func collectionViewContentSize() -> CGSize {

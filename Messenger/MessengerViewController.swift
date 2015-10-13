@@ -14,7 +14,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var inputMessageView: UIView!
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
@@ -41,16 +40,19 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
             layout.delegate = self
         }
-        collectionView!.backgroundColor = UIColor.clearColor()
-        collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
-        
-        titleCollectionView.title? = "Chat"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor().colorWithAlphaComponent(0.55)]
+
         
         messageTextField.delegate = self
         
         refreshControl.addTarget(self, action: "loadMessages", forControlEvents: .ValueChanged)
         collectionView.addSubview(refreshControl)
+        
+        
+        collectionView!.backgroundColor = UIColor.clearColor()
+        collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        
+        titleCollectionView.title? = "Chat"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor().colorWithAlphaComponent(0.55)]
 
     }
 
@@ -59,7 +61,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     // MARK: UICollectionViewDataSource
-
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -98,35 +99,33 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         
         return cell
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        collectionView?.reloadData()
-        let indexPath = NSIndexPath(forRow: messages.count - 1, inSection: 0)
-        self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
-        
-    }
-    
+
     func loadMessages() {
+        let bottomOffset = collectionView.contentSize.height - collectionView.contentOffset.y
+
         var indexPaths = [NSIndexPath]()
         
-        for item in 0..<5 {
+        for item in 0..<4 {
             let message = Message(message: nil, date: nil, sender: nil, recipient: nil)
             messages.insert(message, atIndex: item)
             indexPaths.append(NSIndexPath(forItem: item, inSection: 0))
         }
         
-        refreshControl.endRefreshing()
-        
-        collectionView.reloadData()
-        collectionView.performBatchUpdates(nil, completion: nil)
-        
-        if let indexPath = indexPaths.last {
-            collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
-        }
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+
+        collectionView.performBatchUpdates({
+                self.refreshControl.endRefreshing()
+                self.collectionView.insertItemsAtIndexPaths(indexPaths)
+            },
+            completion: { complete in
+                self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset)
+                CATransaction.commit()
+            }
+        )
     }
 
+    
     override func viewWillAppear(animated:Bool) {
         super.viewWillAppear(animated)
         
