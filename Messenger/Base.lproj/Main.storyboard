@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-wn-wd6">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLo-wn-wd6" userLabel="InputMessageView">
                                 <rect key="frame" x="12" y="527" width="576" height="61"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hly-hU-obF">
@@ -134,6 +134,7 @@
                     <connections>
                         <outlet property="bottomConstraiteInputView" destination="vze-S2-klo" id="yjL-5z-FYs"/>
                         <outlet property="collectionView" destination="XHl-dp-h48" id="rBt-I1-6wr"/>
+                        <outlet property="inputMessageView" destination="zLo-wn-wd6" id="5Le-22-tJ4"/>
                         <outlet property="messageTextField" destination="HLJ-XL-jZS" id="vwy-rU-803"/>
                         <outlet property="titleCollectionView" destination="P21-Ei-XRa" id="QHg-rj-Cs0"/>
                     </connections>

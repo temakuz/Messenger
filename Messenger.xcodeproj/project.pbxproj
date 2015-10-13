@@ -90,8 +90,6 @@
 				AC3AAF5D1BC4650100A62CFB /* CastomStyleCell.swift */,
 				ACA80CFF1BC309B000441D6E /* MessageBabbleView.swift */,
 				ACD19AF21BC687330074F590 /* FrameForImageView.swift */,
-				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
-				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
 				AC633F261BC91835001148C6 /* UserInfoView.xib */,
 				AC633F281BC918D5001148C6 /* UserInfoView.swift */,
 				AC633F2A1BC9668B001148C6 /* DateView.xib */,
@@ -123,6 +121,8 @@
 		AC91A5B01BC2D91C00ED293F /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				AC91A5BA1BC2D91C00ED293F /* LaunchScreen.storyboard */,
+				AC91A5B51BC2D91C00ED293F /* Main.storyboard */,
 				AC463DF21BC72377008FCE2E /* View */,
 				AC463DF11BC72348008FCE2E /* Controller */,
 				AC463DF01BC72334008FCE2E /* Model */,

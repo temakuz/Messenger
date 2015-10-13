@@ -10,12 +10,16 @@ import UIKit
 
 private let reuseIdentifier = "CellMessage"
 
-class MessengerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MessengerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var inputMessageView: UIView!
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
     @IBOutlet weak var titleCollectionView: UINavigationItem!
+   
     private let refreshControl = UIRefreshControl()
 
     var array = [AnyObject]()
@@ -121,6 +125,31 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         if let indexPath = indexPaths.last {
             collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
         }
+    }
+
+    override func viewWillAppear(animated:Bool) {
+        super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    
+    func keyboardWillShow(notification: NSNotification) {
+
+        let info = notification.userInfo
+        var keyboardSize = (info?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() ?? CGRectZero
+        
+        keyboardSize = view.convertRect(keyboardSize, fromView: nil)
+
+        collectionView.transform = CGAffineTransformMakeTranslation(0, -keyboardSize.size.height)
+        inputMessageView.transform = CGAffineTransformMakeTranslation(0, -keyboardSize.size.height)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+
+        collectionView.transform = CGAffineTransformIdentity
+        inputMessageView.transform = CGAffineTransformIdentity
     }
 }
 
