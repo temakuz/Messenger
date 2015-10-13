@@ -40,13 +40,8 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
             layout.delegate = self
         }
-
         
         messageTextField.delegate = self
-        
-        refreshControl.addTarget(self, action: "loadMessages", forControlEvents: .ValueChanged)
-        collectionView.addSubview(refreshControl)
-        
         
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
@@ -99,6 +94,15 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         
         return cell
     }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+        
+        if (currentOffset <= 0) {
+            collectionView.contentOffset = CGPoint(x: 0, y: currentOffset)
+            self.loadMessages()
+        }
+    }
 
     func loadMessages() {
         let bottomOffset = collectionView.contentSize.height - collectionView.contentOffset.y
@@ -115,7 +119,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         CATransaction.setDisableActions(true)
 
         collectionView.performBatchUpdates({
-                self.refreshControl.endRefreshing()
                 self.collectionView.insertItemsAtIndexPaths(indexPaths)
             },
             completion: { complete in
