@@ -22,7 +22,7 @@ class CastomStyleCell: UICollectionViewLayout {
     var delegate: MessageLayoutDelegate!
     
     private var numberOfColumns = 1
-    private var status = true
+    private var firstLoad = true
     private var cache = [UICollectionViewLayoutAttributes]()
     
     private var cellPadding: CGFloat = 0
@@ -64,9 +64,9 @@ class CastomStyleCell: UICollectionViewLayout {
                 }
             }
         }
-        if status {
+        if firstLoad {
             collectionView.contentOffset = CGPoint(x: 0, y: contentHeight - collectionView.bounds.height + collectionView.contentInset.bottom)
-            status = false
+            firstLoad = false
         }
         
     }
