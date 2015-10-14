@@ -43,11 +43,12 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         
         messageTextField.delegate = self
         
-        collectionView!.backgroundColor = UIColor.clearColor()
+        collectionView!.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         
         titleCollectionView.title? = "Chat"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.blackColor().colorWithAlphaComponent(0.55)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor(red: 139/255, green: 141/255, blue: 146/255, alpha: 1)]
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
 
     }
 
@@ -97,10 +98,9 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
-        
-        if (currentOffset <= 0) {
-            collectionView.contentOffset = CGPoint(x: 0, y: currentOffset)
+        if (currentOffset == 0) {
             self.loadMessages()
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
     }
 
@@ -109,8 +109,8 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
 
         var indexPaths = [NSIndexPath]()
         
-        for item in 0..<20 {
-            let message = Message(message: nil, date: nil, sender: nil, recipient: nil)
+        for item in 0..<4 {
+            let message = Message(message: "Hello:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil))
             messages.insert(message, atIndex: item)
             indexPaths.append(NSIndexPath(forItem: item, inSection: 0))
         }

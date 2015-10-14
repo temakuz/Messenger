@@ -22,12 +22,13 @@ class MessageBabbleView: UIView {
         
         let pointerHeight: CGFloat = 10.0
         let pointerWidth: CGFloat = 10.0
-        let borderRadius: CGFloat = 8.0
-        let strokeWidth: CGFloat = 1.5
+        let borderRadius: CGFloat = 4.0
+        let strokeWidth: CGFloat = 1.0
         let borderColor: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.15).CGColor
         let backgroundColor: CGColorRef = UIColor.whiteColor().CGColor
-        let backgroundColorCurrentCell: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
-
+//        let backgroundColorCurrentCell: CGColorRef = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
+        let backgroundColorCurrentCell: CGColorRef = UIColor(red: 241/255, green: 241/255, blue: 242/255, alpha: 1).CGColor
+        
         CGContextSetLineJoin(context, .Round);
         CGContextSetLineWidth(context, strokeWidth);
         CGContextSetStrokeColorWithColor(context, borderColor);
