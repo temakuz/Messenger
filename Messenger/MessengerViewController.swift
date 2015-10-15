@@ -35,7 +35,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                
         // Set the PinterestLayout delegate
         if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
             layout.delegate = self
