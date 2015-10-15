@@ -25,7 +25,7 @@ class Session: NSObject {
     
     //MARK: Requests
     func GET(path: NSURL, parameters: [String: String]?, success: Success?, failure: Failure?) -> NSURLSessionDataTask {
-        let request = requestWithPath(path, method: ".GET", parameters: parameters)
+        let request = requestWithPath(path, method: "GET", parameters: parameters)
         let task = session.dataTaskWithRequest(request) { data, responce, error in
             guard error == nil else {
                 print(error)
@@ -34,8 +34,6 @@ class Session: NSObject {
             }
             print(data)
             success?(data)
-            
-            sleep(1)
         }
         task.resume()
         
@@ -49,8 +47,10 @@ class Session: NSObject {
                 var parametersString = "?"
                 
                 for (param, value) in currentParameters {
-                    parametersString += param + "=" + value
+                    parametersString += param + "=" + value + "&"
                 }
+                parametersString.removeAtIndex(parametersString.endIndex.predecessor())
+                
                 if let newURL = NSURL(string: path.absoluteString + parametersString) {
                     path = newURL
                 }

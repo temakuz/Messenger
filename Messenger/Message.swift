@@ -9,12 +9,14 @@
 import Foundation
 
 struct Message {
+    let id: Int!
     let message: String!
     let date: NSDate!
-    let sender: User!
-    let recipient: User!
+    let sender: Int!
+    let recipient: Int!
     
-    init(message: String!, date: NSDate!, sender: User!, recipient: User!) {
+    init(id: Int!, message: String!, date: NSDate!, sender: Int!, recipient: Int!) {
+        self.id = id
         self.message = message
         self.date = date
         self.sender = sender

@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 struct User {
-    let firstName: String!
-    let lastName: String!
+    let id: Int!
+    let username: String!
     let image: UIImage?
     
-    init(firstName: String!, lastName: String!, image: UIImage?) {
-        self.firstName = firstName
-        self.lastName = lastName
+    init(id: Int!, username: String!, image: UIImage?) {
+        self.id = id
+        self.username = username
         self.image = image
     }
 }

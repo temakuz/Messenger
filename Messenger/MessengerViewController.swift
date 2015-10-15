@@ -18,24 +18,32 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
     @IBOutlet weak var titleCollectionView: UINavigationItem!
-   
-    private let refreshControl = UIRefreshControl()
-
-    var array = [AnyObject]()
-
+    
     @IBAction func tapGesture(sender: AnyObject) {
         view.endEditing(true)
     }
     @IBAction func sendButton() {
         view.endEditing(true)
     }
+//    private let refreshControl = UIRefreshControl()
+
+    private var messages = [Message]()
+    var array = [AnyObject]()
+
+    private let senderUser = User(id: 6, username: "Artem Kuznetsov", image: nil)
+    private let receiverUser = User(id: 1, username: "Mark Levin", image: nil)
+    private var firstLoad = true
     
-    private var messages = [Message(message: "Hello, Mark:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Mark", lastName: "Levin", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:) d s gs dsg dfg sdfg dfsg d", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:) fsgj nj dfgb mndfb gmdnfbg df gbdfmnb ndmf", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, Artem:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil)), Message(message: "Hello, hgf kjsadhm:)", date: nil, sender: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil))]
-    
+    private let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .NoStyle
+        formatter.timeStyle = .ShortStyle
+        return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        loadMessages()
         // Set the PinterestLayout delegate
         if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
             layout.delegate = self
@@ -49,7 +57,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         titleCollectionView.title? = "Chat"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor(red: 139/255, green: 141/255, blue: 146/255, alpha: 1)]
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,12 +79,12 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.messageLable?.text = messages[indexPath.row].message
         
         cell.headerSubview?.removeFromSuperview()
-
-        if indexPath.row % 2 == 0 {
+        
+        if messages[indexPath.row].sender == senderUser.id {
             let headerCell = DateView()
             
             cell.headerView.addSubview(headerCell)
-            headerCell.dateLable?.text = "24:00PM"
+            headerCell.dateLable?.text = dateFormatter.stringFromDate(messages[indexPath.row].date)
             cell.addHeaderView(headerCell)
             
             cell.messageView.positionView = .Right
@@ -87,8 +94,8 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
             let headerCell = UserInfoView()
 
             cell.headerView.addSubview(headerCell)
-            headerCell.usernameLable?.text = "Artem"
-            headerCell.dateLable?.text = "22:30PM"
+            headerCell.usernameLable?.text = receiverUser.username
+            headerCell.dateLable?.text = dateFormatter.stringFromDate(messages[indexPath.row].date)
             cell.addHeaderView(headerCell)
         }
         cell.messageView.setNeedsDisplay()
@@ -98,7 +105,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
-        if (currentOffset == 0) {
+        if (currentOffset == -10) {
             self.loadMessages()
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
@@ -109,26 +116,33 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
 
         var indexPaths = [NSIndexPath]()
         
-        for item in 0..<4 {
-            let message = Message(message: "Hello:)", date: nil, sender: User(firstName: "Mark ", lastName: "Levin", image: nil), recipient: User(firstName: "Artem ", lastName: "Kuznetsov", image: nil))
-            messages.insert(message, atIndex: item)
-            indexPaths.append(NSIndexPath(forItem: item, inSection: 0))
-        }
         
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        
-        collectionView.performBatchUpdates({
-            
-                self.collectionView.insertItemsAtIndexPaths(indexPaths)
-            },
-            completion: { complete in
-                self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset )
-                CATransaction.commit()
-            }
-        )
+        Messages.messagesUpdate(senderUser, secondUser: receiverUser, offset: messages.count,
+            success: { newMessages in
+                for item in 0..<newMessages.count {
+                    self.messages.insert(newMessages[item], atIndex: item)
+                    indexPaths.append(NSIndexPath(forItem: item, inSection: 0))
+                }
+                
+//                CATransaction.begin()
+//                CATransaction.setDisableActions(true)
+                
+                self.collectionView.performBatchUpdates({
+                    self.collectionView.insertItemsAtIndexPaths(indexPaths)
+                    },
+                    completion: { complete in
+                        if self.firstLoad {
+                            self.firstLoad = false
+                        } else {
+                            self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset)
+//                            CATransaction.commit()
+                        }
+                    }
+                )
+            }, failure: { error in
+                print("Error")
+        })
     }
-
     
     override func viewWillAppear(animated:Bool) {
         super.viewWillAppear(animated)
@@ -136,7 +150,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
-    
     
     func keyboardWillShow(notification: NSNotification) {
 
@@ -156,29 +169,23 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     }
 }
 
-
 extension MessengerViewController: MessageLayoutDelegate {
 
     func collectionView(collectionView:UICollectionView, heightForMessageViewAtIndexPath indexPath:NSIndexPath, withWidth: CGFloat) -> CGFloat {
-
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.preferredMaxLayoutWidth = withWidth - 40
-        label.text = messages[indexPath.row].message
-
+       
+        var babbleView = MessageView()
+        babbleView.messageLable?.text = messages[indexPath.row].message
+        babbleView.messageLable.preferredMaxLayoutWidth = withWidth
         
-        var labelFrame = label.frame
-        labelFrame.size.width = withWidth / 1.2
-        label.frame = labelFrame
-        label.sizeToFit()
+        var labelFrame = babbleView.messageLable.frame
+        labelFrame.size.width = withWidth
+        babbleView.messageLable.frame = labelFrame
+        babbleView.messageLable.sizeToFit()
         
-        return label.frame.height + 2
-
-        
+        return babbleView.messageLable.frame.height
     }
     
     func collectioView(collectionView: UICollectionView, positionCellViewAtIndexPath indexPath: NSIndexPath) -> Int {
-        return indexPath.row % 2 == 0 ? 0 : 1
-            
+        return messages[indexPath.row].sender == senderUser.id ? 0 : 1
     }
 }

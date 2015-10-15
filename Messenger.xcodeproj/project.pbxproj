@@ -27,6 +27,7 @@
 		ACA80D041BC39EC000441D6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80D031BC39EC000441D6E /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		ACABC8FC1BD0176700982911 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACABC8FB1BD0176700982911 /* Session.swift */; settings = {ASSET_TAGS = (); }; };
 		ACABC9001BD01D4300982911 /* Messeges.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACABC8FF1BD01D4300982911 /* Messeges.swift */; settings = {ASSET_TAGS = (); }; };
+		ACABC9021BD0274700982911 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACABC9011BD0274700982911 /* Parser.swift */; settings = {ASSET_TAGS = (); }; };
 		ACD19AF31BC687330074F590 /* FrameForImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD19AF21BC687330074F590 /* FrameForImageView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		ACA80D031BC39EC000441D6E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACABC8FB1BD0176700982911 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		ACABC8FF1BD01D4300982911 /* Messeges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messeges.swift; sourceTree = "<group>"; };
+		ACABC9011BD0274700982911 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		ACD19AF21BC687330074F590 /* FrameForImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameForImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				ACABC8FF1BD01D4300982911 /* Messeges.swift */,
+				ACABC9011BD0274700982911 /* Parser.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				AC9745321BC3F46E00B37456 /* MessageCollectionViewCell.swift in Sources */,
 				ACA80D001BC309B000441D6E /* MessageBabbleView.swift in Sources */,
 				ACA80D041BC39EC000441D6E /* User.swift in Sources */,
+				ACABC9021BD0274700982911 /* Parser.swift in Sources */,
 				ACD19AF31BC687330074F590 /* FrameForImageView.swift in Sources */,
 				ACA80D021BC39EB600441D6E /* Message.swift in Sources */,
 				ACABC9001BD01D4300982911 /* Messeges.swift in Sources */,
