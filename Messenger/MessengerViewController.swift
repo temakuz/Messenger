@@ -23,6 +23,12 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         view.endEditing(true)
     }
     @IBAction func sendButton() {
+//        let message = Message(id: 0, message: messageTextField.text, date: nil, sender: senderUser.id, recipient: receiverUser.id)
+//
+//        self.messages.append(message)
+//        
+//        self.collectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)])
+        
         view.endEditing(true)
     }
 //    private let refreshControl = UIRefreshControl()
@@ -105,18 +111,17 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+
         if !firstLoad {
-            let currentOffset = scrollView.contentOffset.y
             if (currentOffset == 0) {
-                scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+//                scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
                 self.loadMessages()
             }
         }
     }
 
     func loadMessages() {
-        let bottomOffset = self.collectionView.contentSize.height - self.collectionView.contentOffset.y
-
         var indexPaths = [NSIndexPath]()
         
         Messages.messagesUpdate(senderUser, secondUser: receiverUser, offset: messages.count,
@@ -129,22 +134,23 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
                     indexPaths.append(NSIndexPath(forItem: index, inSection: 0))
                     self.messages.insert(message, atIndex: index)
                 }
+                
+                let bottomOffset = self.collectionView.contentSize.height - self.collectionView.contentOffset.y
+
                 self.collectionView.performBatchUpdates({
-                self.collectionView.insertItemsAtIndexPaths(indexPaths)
-                },
-                completion: { complete in
-                    if self.firstLoad {
-                        self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - self.collectionView.bounds.height + self.collectionView.contentInset.bottom)
-                        self.firstLoad = false
-                    } else {
-                        CATransaction.begin()
-                        CATransaction.setDisableActions(true)
+                    self.collectionView.insertItemsAtIndexPaths(indexPaths)
+                    },
+                    completion: { complete in
+                        if self.firstLoad {
+                            self.firstLoad = false
+                        } else {
                         
-                        self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset), animated: true)
+                        self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset), animated: false)
                         
-                        CATransaction.commit()
-                    }
+                            CATransaction.commit()
+                        }
                 })
+
             }, failure: { error in
                 print("Error")
         })
