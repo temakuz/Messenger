@@ -198,7 +198,7 @@ extension MessengerViewController: MessageLayoutDelegate {
 
     func collectionView(collectionView:UICollectionView, heightForMessageViewAtIndexPath indexPath:NSIndexPath, withWidth: CGFloat) -> CGFloat {
        
-        var babbleView = MessageView()
+        let babbleView = MessageView()
         babbleView.messageLable?.text = messages[indexPath.row].message
         babbleView.messageLable.preferredMaxLayoutWidth = withWidth
         
