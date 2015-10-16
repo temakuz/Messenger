@@ -13,7 +13,6 @@ private let reuseIdentifier = "CellMessage"
 class MessengerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var inputMessageView: UIView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var bottomConstraiteInputView: NSLayoutConstraint!
@@ -144,8 +143,13 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
                 
                 let bottomOffset = self.collectionView.contentSize.height - self.collectionView.contentOffset.y
 
+                if !self.firstLoad {
+                    CATransaction.begin()
+                    CATransaction.setDisableActions(true)
+                }
+                
                 self.collectionView.performBatchUpdates({
-                    self.collectionView.insertItemsAtIndexPaths(indexPaths)
+                        self.collectionView.insertItemsAtIndexPaths(indexPaths)
                     },
                     completion: { complete in
                         if self.firstLoad {
