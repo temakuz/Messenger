@@ -33,7 +33,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     private let senderUser = User(id: 6, username: "Artem Kuznetsov", image: nil)
     private let receiverUser = User(id: 1, username: "Mark Levin", image: nil)
     private var firstLoad = true
-    
+
     private let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .NoStyle
@@ -43,7 +43,6 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMessages()
         // Set the PinterestLayout delegate
         if let layout = collectionView?.collectionViewLayout as? CastomStyleCell {
             layout.delegate = self
@@ -57,6 +56,8 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         titleCollectionView.title? = "Chat"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor(red: 139/255, green: 141/255, blue: 146/255, alpha: 1)]
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
+        loadMessages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,11 +104,13 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         return cell
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let currentOffset = scrollView.contentOffset.y
-        if (currentOffset == -10) {
-            self.loadMessages()
-            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if !firstLoad {
+            let currentOffset = scrollView.contentOffset.y
+            if (currentOffset == 0) {
+                scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+                self.loadMessages()
+            }
         }
     }
 
@@ -116,29 +119,31 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
 
         var indexPaths = [NSIndexPath]()
         
-        
         Messages.messagesUpdate(senderUser, secondUser: receiverUser, offset: messages.count,
-            success: { newMessages in
-                for item in 0..<newMessages.count {
-                    self.messages.insert(newMessages[item], atIndex: item)
-                    indexPaths.append(NSIndexPath(forItem: item, inSection: 0))
+            success: { currentMessages in
+                guard let newMessages = currentMessages else {
+                    return
                 }
                 
-//                CATransaction.begin()
-//                CATransaction.setDisableActions(true)
-                
+                for (index, message) in newMessages.enumerate() {
+                    indexPaths.append(NSIndexPath(forItem: index, inSection: 0))
+                    self.messages.insert(message, atIndex: index)
+                }
                 self.collectionView.performBatchUpdates({
-                    self.collectionView.insertItemsAtIndexPaths(indexPaths)
-                    },
-                    completion: { complete in
-                        if self.firstLoad {
-                            self.firstLoad = false
-                        } else {
-                            self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset)
-//                            CATransaction.commit()
-                        }
+                self.collectionView.insertItemsAtIndexPaths(indexPaths)
+                },
+                completion: { complete in
+                    if self.firstLoad {
+                        self.firstLoad = false
+                    } else {
+                        CATransaction.begin()
+                        CATransaction.setDisableActions(true)
+                        self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset), animated: true)
+                            
+                        CATransaction.commit()
+                        self.firstLoad = false
                     }
-                )
+                })
             }, failure: { error in
                 print("Error")
         })

@@ -55,7 +55,7 @@
                                     <constraint firstItem="hly-hU-obF" firstAttribute="top" secondItem="zLo-wn-wd6" secondAttribute="top" id="rFS-0x-9Ev"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-dp-h48">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-dp-h48">
                                 <rect key="frame" x="0.0" y="64" width="600" height="460"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="B8W-CU-EEt" customClass="CastomStyleCell" customModule="Messenger" customModuleProvider="target"/>

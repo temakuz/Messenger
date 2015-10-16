@@ -32,7 +32,6 @@ class Session: NSObject {
                 failure?(error!)
                 return
             }
-            print(data)
             success?(data)
         }
         task.resume()

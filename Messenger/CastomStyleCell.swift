@@ -23,6 +23,7 @@ class CastomStyleCell: UICollectionViewLayout {
     
     private var numberOfColumns = 1
     private var cache = [UICollectionViewLayoutAttributes]()
+    private var firstLoad = true
     
     private var cellPadding: CGFloat = 0
     private var contentHeight: CGFloat  = 0.0
@@ -63,7 +64,11 @@ class CastomStyleCell: UICollectionViewLayout {
                 }
             }
         }
-        collectionView.contentOffset = CGPoint(x: 0, y: contentHeight - collectionView.bounds.height + collectionView.contentInset.bottom)
+        if firstLoad {
+            collectionView.contentOffset = CGPoint(x: 0, y: contentHeight - collectionView.bounds.height + collectionView.contentInset.bottom)
+            firstLoad = false
+        }
+        
     }
     
     override func collectionViewContentSize() -> CGSize {
