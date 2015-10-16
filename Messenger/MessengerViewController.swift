@@ -33,7 +33,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     private let senderUser = User(id: 6, username: "Artem Kuznetsov", image: nil)
     private let receiverUser = User(id: 1, username: "Mark Levin", image: nil)
     private var firstLoad = true
-
+    
     private let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .NoStyle
@@ -121,7 +121,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         
         Messages.messagesUpdate(senderUser, secondUser: receiverUser, offset: messages.count,
             success: { currentMessages in
-                guard let newMessages = currentMessages else {
+                guard let newMessages = currentMessages?.reverse() else {
                     return
                 }
                 
@@ -134,14 +134,15 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
                 },
                 completion: { complete in
                     if self.firstLoad {
+                        self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - self.collectionView.bounds.height + self.collectionView.contentInset.bottom)
                         self.firstLoad = false
                     } else {
                         CATransaction.begin()
                         CATransaction.setDisableActions(true)
+                        
                         self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentSize.height - bottomOffset), animated: true)
-                            
+                        
                         CATransaction.commit()
-                        self.firstLoad = false
                     }
                 })
             }, failure: { error in
@@ -163,6 +164,8 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         
         keyboardSize = view.convertRect(keyboardSize, fromView: nil)
 
+        collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - collectionView.bounds.height + collectionView.contentInset.bottom)
+        
         collectionView.transform = CGAffineTransformMakeTranslation(0, -keyboardSize.size.height)
         inputMessageView.transform = CGAffineTransformMakeTranslation(0, -keyboardSize.size.height)
     }
