@@ -11,8 +11,8 @@ import Foundation
 class Messages {
     private static let baseURL = NSURL(string: "http://54.65.210.65/cakephp-2.7.5/messages")!
     
-    static func messagesUpdate(firstUser: User, secondUser: User, offset: Int, success: ([Message]?) -> (), failure: Session.Failure) {
-        let parameters = ["sender_id": String(firstUser.id), "receiver_id": String(secondUser.id), "last_message_id": String(offset)]
+    static func messagesUpdate(fromUser: User, toUser: User, offset: Int, success: ([Message]?) -> (), failure: Session.Failure) {
+        let parameters = ["sender_id": String(fromUser.id), "receiver_id": String(toUser.id), "last_message_id": String(offset)]
         
         Session.instance.GET(baseURL, parameters: parameters,
             success: { data in
@@ -36,5 +36,25 @@ class Messages {
             failure: { error in
                 failure(error)
         })
+    }
+    
+    static func sendMessage(message: Message, success: (() -> ())?, failure: Session.Failure?) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let parameters = ["sender_id": String(message.sender), "receiver_id": String(message.recipient), "text": String(message.message), "created_at": dateFormatter.stringFromDate(NSDate())]
+        
+        let path = baseURL.URLByAppendingPathComponent("create")
+        Session.instance.POST(path, parameters: parameters,
+            success: { data in
+                dispatch_async(dispatch_get_main_queue()) {
+                    success?()
+                }
+                
+            }) { error in
+                dispatch_async(dispatch_get_main_queue()) {
+                    failure?(error)
+                }
+        }
     }
 }

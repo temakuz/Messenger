@@ -26,6 +26,17 @@ class Session: NSObject {
     //MARK: Requests
     func GET(path: NSURL, parameters: [String: String]?, success: Success?, failure: Failure?) -> NSURLSessionDataTask {
         let request = requestWithPath(path, method: "GET", parameters: parameters)
+       
+        return doRequest(request, success: success, failure: failure)
+    }
+    
+    func POST(path: NSURL, parameters: [String: String]?, success: Success?, failure: Failure?) -> NSURLSessionDataTask {
+        let request = requestWithPath(path, method: "POST", parameters: parameters)
+        
+        return doRequest(request, success: success, failure: failure)
+    }
+    
+    private func doRequest(request: NSURLRequest, success: Success?, failure: Failure?) -> NSURLSessionDataTask {
         let task = session.dataTaskWithRequest(request) { data, responce, error in
             guard error == nil else {
                 print(error)
@@ -39,6 +50,7 @@ class Session: NSObject {
         return task
     }
     
+    //MAKE: Creating request
     private func requestWithPath(var path: NSURL, method: String, parameters: [String: String]?) -> NSURLRequest {
         
         if method == "GET" {
@@ -59,6 +71,19 @@ class Session: NSObject {
         
         let request = NSMutableURLRequest(URL: path)
         request.HTTPMethod = method
+        
+        if method == "POST" {
+            if let currentParameters = parameters {
+                var postString = ""
+                for (param, value) in currentParameters {
+                        postString += param + "=" + value + "&"
+                }
+                postString.removeAtIndex(postString.endIndex.predecessor())
+                
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+                request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            }
+        }
         
         return request
     }

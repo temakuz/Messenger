@@ -32,6 +32,9 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: messages.count - 1, inSection: 0)])
         
         self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentSize.height), animated: false)
+        
+        Messages.sendMessage(message, success: nil, failure: nil)
+        
         messageTextField?.text = ""
         
         view.endEditing(true)
@@ -128,7 +131,7 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     func loadMessages() {
         var indexPaths = [NSIndexPath]()
         
-        Messages.messagesUpdate(senderUser, secondUser: receiverUser, offset: messages.count,
+        Messages.messagesUpdate(senderUser, toUser: receiverUser, offset: messages.count,
             success: { currentMessages in
                 guard let newMessages = currentMessages?.reverse() else {
                     return
