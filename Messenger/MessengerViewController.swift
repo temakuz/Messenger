@@ -22,16 +22,20 @@ class MessengerViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBAction func tapGesture(sender: AnyObject) {
         view.endEditing(true)
     }
+    
     @IBAction func sendButton() {
-//        let message = Message(id: 0, message: messageTextField.text, date: nil, sender: senderUser.id, recipient: receiverUser.id)
-//
-//        self.messages.append(message)
-//        
-//        self.collectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)])
+        let date = NSDate()
+        
+        let message = Message(id: 0, message: messageTextField!.text, date: date, sender: senderUser.id, recipient: receiverUser.id)
+        self.messages.append(message)
+        
+        collectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: messages.count - 1, inSection: 0)])
+        
+        self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentSize.height), animated: false)
+        messageTextField?.text = ""
         
         view.endEditing(true)
     }
-//    private let refreshControl = UIRefreshControl()
 
     private var messages = [Message]()
     var array = [AnyObject]()
